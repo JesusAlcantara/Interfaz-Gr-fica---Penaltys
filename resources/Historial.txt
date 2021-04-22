@@ -1,0 +1,21 @@
+Sevilla FC;Atletico de Madrid;0;1
+Real Madrid;Atletico de Madrid;1;2
+Real Madrid;Sevilla FC;2;1
+Atletico de Madrid;Sevilla FC;3;2
+Sevilla FC;Atletico de Madrid;6;5
+Sevilla FC;Atletico de Madrid;0;1
+Cadiz CF;Sevilla FC;3;2
+Sevilla FC;Real Madrid;0;1
+FC Barcelona;Sevilla FC;0;2
+Atletico de Madrid;Sevilla FC;1;0
+FC Barcelona;Real Madrid;1;0
+Atletico de Madrid;Real Madrid;2;1
+FC Barcelona;Atletico de Madrid;1;2
+FC Barcelona;Real Madrid;1;0
+Sevilla FC;Atletico de Madrid;1;0
+Atletico de Madrid;Cadiz CF;2;1
+FC Barcelona;Atletico de Madrid;0;1
+FC Barcelona;Atletico de Madrid;2;1
+Real Madrid;Sevilla FC;2;1
+Real Madrid;FC Barcelona;2;3
+Real Madrid;Sevilla FC;1;0
