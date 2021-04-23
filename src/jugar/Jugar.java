@@ -32,6 +32,7 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 
 import javax.swing.ListSelectionModel;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
@@ -44,7 +45,7 @@ public class Jugar extends JFrame {
 	public static Equipo eqVisitante;
 	public static ArrayList<Componente> plantillaLocal = new ArrayList<>();
 	public static ArrayList<Componente> plantillaVisitante = new ArrayList<>();
-	public static ArrayList<Equipo> equipos = new ArrayList<>();
+	private Equipo equipo;
 	private String nombreLocal;
 	private int numLanzamientos;
 	private JPanel contentPane;
@@ -65,14 +66,15 @@ public class Jugar extends JFrame {
 	private String[] nombrePV;
 	JLabel escudoLocal;
 	JLabel escudoVisitante;
-
+	ImageIcon gol=new ImageIcon("resources/escudos/realmadrid.png");
+	String [] equipos= {"Real Madrid","FC Barcelona","Atletico de Madrid","Sevilla FC","Cadiz CF"};
+	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Jugar() {
 		super("Jugar");
 		setSize(800,600);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//setBounds(100, 100, 700, 650);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -82,8 +84,10 @@ public class Jugar extends JFrame {
 		golesVisitante = 0;
 		numLanzamientos=Opciones.numLanzamientos;
 		nombreLocal=Opciones.nombreLocal;
-		escribirOLeer();
-		cargarLocal();
+		escribirOLeer(nombreLocal);
+		escribirOLeer(nombreLocal);
+		eqLocal=equipo;
+		plantillaLocal=eqLocal.getPlantilla();
 		cargarVisitante();
 		
 		
@@ -177,12 +181,13 @@ public class Jugar extends JFrame {
 	private class botones implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			try {
 			if(e.getSource()==lanzarBTN) {
 				if (contador!=numLanzamientos) {
 				int lanzamiento=lanzamiento(buscarJugador(dorsalLanzador));
 				if(lanzamiento==1) {
 					golesLocal++;
-					JOptionPane.showMessageDialog(Jugar.this, "Goooool");
+					JOptionPane.showMessageDialog(Jugar.this, "Gooool","Gol",JOptionPane.INFORMATION_MESSAGE/*,gol*/);
 				}
 				else if(lanzamiento==-1) {
 					JOptionPane.showMessageDialog(Jugar.this, "Al paloooo");
@@ -225,7 +230,6 @@ public class Jugar extends JFrame {
 							fw.write(eqLocal.getNombre()+";"+eqVisitante.getNombre()+";"+golesLocal+";"+golesVisitante+"\n");
 							fw.close();
 						} catch (IOException e1) {
-							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						} 
 						
@@ -243,7 +247,7 @@ public class Jugar extends JFrame {
 					else if(golesLocal==golesVisitante) {
 						if(plantillaLocal.size()==1) {
 							plantillaLocal=eqLocal.getPlantilla();
-							plantillaVisitante=eqLocal.getPlantilla();
+							plantillaVisitante=eqVisitante.getPlantilla();
 							nombrePL=mostrarLocal();
 							plantillaLocalList.removeAll();
 							plantillaLocalList.setListData(nombrePL);
@@ -287,14 +291,15 @@ public class Jugar extends JFrame {
 							nombrePV=mostrarVisitante();
 							plantillaVisitanteList.removeAll();
 							plantillaVisitanteList.setListData(nombrePV);
-							//contador++;
-							//lanzamientosLBL.setText("Nº de Penaltis: "+contador+"-"+numLanzamientos);
 							resultadoLBL.setText("RESULTADO: "+golesLocal+"-"+golesVisitante);
 						}
 					}
 				}
 				
 				}
+			}catch(NullPointerException ex) {
+				JOptionPane.showMessageDialog(Jugar.this, "Seleccione un jugador de la plantilla","Error",JOptionPane.ERROR_MESSAGE);
+			}
 			
 		}
 		
@@ -316,20 +321,20 @@ public class Jugar extends JFrame {
 		this.numLanzamientos = numLanzamientos;
 	}
 
-	public static Equipo RealMadrid() {
+	public void RealMadrid() throws FileNotFoundException, IOException {
 		ArrayList<Componente> plantillaRealMadrid = new ArrayList<>();
-		Jugador j1 = new Jugador("Thibaut Courtois", 1, 40);
-		Jugador j2 = new Jugador("Dani Carvajal", 2, 70);
-		Jugador j3 = new Jugador("Raphael Varane", 3, 60);
-		Jugador j4 = new Jugador("Sergio Ramos", 4, 90);
-		Jugador j5 = new Jugador("Ferland Mendy", 5, 60);
-		Jugador j6 = new Jugador("Casemiro", 6, 70);
-		Jugador j7 = new Jugador("Eden Hazard", 7, 95);
-		Jugador j8 = new Jugador("Toni Kroos", 8, 95);
-		Jugador j9 = new Jugador("Karim Benzema", 9, 90);
-		Jugador j10 = new Jugador("Luka Modric", 10, 90);
-		Jugador j11 = new Jugador("Marco Asensio", 11, 85);
-		Entrenador e1 = new Entrenador("Zidane", 45);
+		Jugador j1 = new Jugador("Thibaut Courtois", 1, 40,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j2 = new Jugador("Dani Carvajal", 2, 70,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j3 = new Jugador("Raphael Varane", 3, 60,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j4 = new Jugador("Sergio Ramos", 4, 90,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j5 = new Jugador("Ferland Mendy", 5, 60,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j6 = new Jugador("Casemiro", 6, 70,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j7 = new Jugador("Eden Hazard", 7, 95,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j8 = new Jugador("Toni Kroos", 8, 95,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j9 = new Jugador("Karim Benzema", 9, 90,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j10 = new Jugador("Luka Modric", 10, 90,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j11 = new Jugador("Marco Asensio", 11, 85,"resources/plantilla/realmadrid/courtois.png");
+		Entrenador e1 = new Entrenador("Zidane", 45,"resources/plantilla/realmadrid/courtois.png");
 		plantillaRealMadrid.add(j1);
 		plantillaRealMadrid.add(j2);
 		plantillaRealMadrid.add(j3);
@@ -342,24 +347,24 @@ public class Jugar extends JFrame {
 		plantillaRealMadrid.add(j10);
 		plantillaRealMadrid.add(j11);
 		plantillaRealMadrid.add(e1);
-		Equipo eq1 = new Equipo("Real Madrid", "Madrid", "Santiago Bernabeu", plantillaRealMadrid);
-		return eq1;
+		Equipo eq1 = new Equipo("Real Madrid", "Madrid", "Santiago Bernabeu", plantillaRealMadrid,"resources/plantilla/realmadrid/realmadridJugar.png");
+		serializar(eq1,"Real Madrid");
 	}
 
-	public static Equipo Barcelona() {
+	public void Barcelona() throws FileNotFoundException, IOException {
 		ArrayList<Componente> plantillaBarcelona = new ArrayList<>();
-		Jugador j1 = new Jugador("ter Stegen", 1, 40);
-		Jugador j2 = new Jugador("Dest", 2, 60);
-		Jugador j3 = new Jugador("Pique Gerard", 3, 70);
-		Jugador j4 = new Jugador("Lenglet Clement", 4, 70);
-		Jugador j5 = new Jugador("Alba Jordi", 5, 60);
-		Jugador j6 = new Jugador("Busquets Sergio", 6, 85);
-		Jugador j7 = new Jugador("Pedri", 7, 80);
-		Jugador j8 = new Jugador("de Jong Frenkie", 8, 80);
-		Jugador j9 = new Jugador("Griezmann Antoine", 9, 70);
-		Jugador j10 = new Jugador("Messi Lionel", 10, 90);
-		Jugador j11 = new Jugador("Dembele Ousmane", 11, 85);
-		Entrenador e1 = new Entrenador("Koeman", 45);
+		Jugador j1 = new Jugador("ter Stegen", 1, 40,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j2 = new Jugador("Dest", 2, 60,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j3 = new Jugador("Pique Gerard", 3, 70,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j4 = new Jugador("Lenglet Clement", 4, 70,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j5 = new Jugador("Alba Jordi", 5, 60,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j6 = new Jugador("Busquets Sergio", 6, 85,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j7 = new Jugador("Pedri", 7, 80,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j8 = new Jugador("de Jong Frenkie", 8, 80,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j9 = new Jugador("Griezmann Antoine", 9, 70,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j10 = new Jugador("Messi Lionel", 10, 90,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j11 = new Jugador("Dembele Ousmane", 11, 85,"resources/plantilla/realmadrid/courtois.png");
+		Entrenador e1 = new Entrenador("Koeman", 45,"resources/plantilla/realmadrid/courtois.png");
 		plantillaBarcelona.add(j1);
 		plantillaBarcelona.add(j2);
 		plantillaBarcelona.add(j3);
@@ -372,24 +377,24 @@ public class Jugar extends JFrame {
 		plantillaBarcelona.add(j10);
 		plantillaBarcelona.add(j11);
 		plantillaBarcelona.add(e1);
-		Equipo eq1 = new Equipo("FC Barcelona", "Barcelona", "Camp Nou", plantillaBarcelona);
-		return eq1;
+		Equipo eq1 = new Equipo("FC Barcelona", "Barcelona", "Camp Nou", plantillaBarcelona,"resources/plantilla/realmadrid/courtois.png");
+		serializar(eq1,"FC Barcelona");
 	}
 
-	public static Equipo Cadiz() {
+	public void Cadiz() throws FileNotFoundException, IOException {
 		ArrayList<Componente> plantillaCadiz = new ArrayList<>();
-		Jugador j1 = new Jugador("Ledesma Jeremias", 1, 40);
-		Jugador j2 = new Jugador("Isaac Carcelen", 2, 60);
-		Jugador j3 = new Jugador("Fali", 3, 70);
-		Jugador j4 = new Jugador("Juan Cala", 4, 70);
-		Jugador j5 = new Jugador("Pacha Espino", 5, 60);
-		Jugador j6 = new Jugador("Jose mari", 6, 85);
-		Jugador j7 = new Jugador("Salvi", 7, 80);
-		Jugador j8 = new Jugador("Alex Fernandez", 8, 90);
-		Jugador j9 = new Jugador("Choco Lozano", 9, 70);
-		Jugador j10 = new Jugador("Negredo", 10, 90);
-		Jugador j11 = new Jugador("Perea", 11, 80);
-		Entrenador e1 = new Entrenador("Cervera", 45);
+		Jugador j1 = new Jugador("Ledesma Jeremias", 1, 40,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j2 = new Jugador("Isaac Carcelen", 2, 60,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j3 = new Jugador("Fali", 3, 70,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j4 = new Jugador("Juan Cala", 4, 70,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j5 = new Jugador("Pacha Espino", 5, 60,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j6 = new Jugador("Jose mari", 6, 85,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j7 = new Jugador("Salvi", 7, 80,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j8 = new Jugador("Alex Fernandez", 8, 90,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j9 = new Jugador("Choco Lozano", 9, 70,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j10 = new Jugador("Negredo", 10, 90,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j11 = new Jugador("Perea", 11, 80,"resources/plantilla/realmadrid/courtois.png");
+		Entrenador e1 = new Entrenador("Cervera", 45,"resources/plantilla/realmadrid/courtois.png");
 		plantillaCadiz.add(j1);
 		plantillaCadiz.add(j2);
 		plantillaCadiz.add(j3);
@@ -402,24 +407,24 @@ public class Jugar extends JFrame {
 		plantillaCadiz.add(j10);
 		plantillaCadiz.add(j11);
 		plantillaCadiz.add(e1);
-		Equipo eq1 = new Equipo("Cadiz CF", "Cadiz", "Ramon de Carranza", plantillaCadiz);
-		return eq1;
+		Equipo eq1 = new Equipo("Cadiz CF", "Cadiz", "Ramon de Carranza", plantillaCadiz,"resources/plantilla/realmadrid/courtois.png");
+		serializar(eq1,"Cadiz CF");
 	}
 
-	public static Equipo AtleticoDeMadrid() {
+	public void AtleticoDeMadrid() throws FileNotFoundException, IOException {
 		ArrayList<Componente> plantillaAtleticoDeMadrid = new ArrayList<>();
-		Jugador j1 = new Jugador("Oblack", 1, 40);
-		Jugador j2 = new Jugador("Trippier", 2, 60);
-		Jugador j3 = new Jugador("Gimenez", 3, 70);
-		Jugador j4 = new Jugador("Savic", 4, 70);
-		Jugador j5 = new Jugador("Lodi", 5, 60);
-		Jugador j6 = new Jugador("Koke", 6, 80);
-		Jugador j7 = new Jugador("Joao Felix", 7, 90);
-		Jugador j8 = new Jugador("Marcos Llorente", 8, 80);
-		Jugador j9 = new Jugador("Luis Suarez", 9, 90);
-		Jugador j10 = new Jugador("Lemar", 10, 90);
-		Jugador j11 = new Jugador("Yannick Carrasco", 11, 90);
-		Entrenador e1 = new Entrenador("Simeone", 45);
+		Jugador j1 = new Jugador("Oblack", 1, 40,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j2 = new Jugador("Trippier", 2, 60,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j3 = new Jugador("Gimenez", 3, 70,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j4 = new Jugador("Savic", 4, 70,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j5 = new Jugador("Lodi", 5, 60,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j6 = new Jugador("Koke", 6, 80,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j7 = new Jugador("Joao Felix", 7, 90,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j8 = new Jugador("Marcos Llorente", 8, 80,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j9 = new Jugador("Luis Suarez", 9, 90,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j10 = new Jugador("Lemar", 10, 90,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j11 = new Jugador("Yannick Carrasco", 11, 90,"resources/plantilla/realmadrid/courtois.png");
+		Entrenador e1 = new Entrenador("Simeone", 45,"resources/plantilla/realmadrid/courtois.png");
 		plantillaAtleticoDeMadrid.add(j1);
 		plantillaAtleticoDeMadrid.add(j2);
 		plantillaAtleticoDeMadrid.add(j3);
@@ -432,24 +437,24 @@ public class Jugar extends JFrame {
 		plantillaAtleticoDeMadrid.add(j10);
 		plantillaAtleticoDeMadrid.add(j11);
 		plantillaAtleticoDeMadrid.add(e1);
-		Equipo eq1 = new Equipo("Atletico de Madrid", "Madrid", "Wanda Metropolitano", plantillaAtleticoDeMadrid);
-		return eq1;
+		Equipo eq1 = new Equipo("Atletico de Madrid", "Madrid", "Wanda Metropolitano", plantillaAtleticoDeMadrid,"resources/plantilla/realmadrid/courtois.png");
+		serializar(eq1,"Atletico de Madrid");
 	}
 
-	public static Equipo Sevilla() {
+	public void Sevilla() throws FileNotFoundException, IOException {
 		ArrayList<Componente> plantillaSevilla = new ArrayList<>();
-		Jugador j1 = new Jugador("Bono", 1, 40);
-		Jugador j2 = new Jugador("Jesus Navas", 2, 80);
-		Jugador j3 = new Jugador("Diego Carlos", 3, 70);
-		Jugador j4 = new Jugador("Kounde", 4, 70);
-		Jugador j5 = new Jugador("Acuña", 5, 60);
-		Jugador j6 = new Jugador("Fernando", 6, 80);
-		Jugador j7 = new Jugador("Suso", 7, 80);
-		Jugador j8 = new Jugador("Jordan", 8, 80);
-		Jugador j9 = new Jugador("En-Nesyri", 9, 70);
-		Jugador j10 = new Jugador("Rakitic", 10, 90);
-		Jugador j11 = new Jugador("Ocampos", 11, 85);
-		Entrenador e1 = new Entrenador("Lopetegui", 45);
+		Jugador j1 = new Jugador("Bono", 1, 40,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j2 = new Jugador("Jesus Navas", 2, 80,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j3 = new Jugador("Diego Carlos", 3, 70,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j4 = new Jugador("Kounde", 4, 70,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j5 = new Jugador("Acuña", 5, 60,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j6 = new Jugador("Fernando", 6, 80,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j7 = new Jugador("Suso", 7, 80,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j8 = new Jugador("Jordan", 8, 80,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j9 = new Jugador("En-Nesyri", 9, 70,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j10 = new Jugador("Rakitic", 10, 90,"resources/plantilla/realmadrid/courtois.png");
+		Jugador j11 = new Jugador("Ocampos", 11, 85,"resources/plantilla/realmadrid/courtois.png");
+		Entrenador e1 = new Entrenador("Lopetegui", 45,"resources/plantilla/realmadrid/courtois.png");
 		plantillaSevilla.add(j1);
 		plantillaSevilla.add(j2);
 		plantillaSevilla.add(j3);
@@ -462,15 +467,15 @@ public class Jugar extends JFrame {
 		plantillaSevilla.add(j10);
 		plantillaSevilla.add(j11);
 		plantillaSevilla.add(e1);
-		Equipo eq1 = new Equipo("Sevilla FC", "Sevilla", "Ramon Sanchez Pizjuan", plantillaSevilla);
-		return eq1;
+		Equipo eq1 = new Equipo("Sevilla FC", "Sevilla", "Ramon Sanchez Pizjuan", plantillaSevilla,"resources/plantilla/realmadrid/realmadridJugar.png");
+		serializar(eq1,"Sevilla FC");
 	}
 
-	private void escribirOLeer() {
-		File f = new File("resources/equipos");
+	private void escribirOLeer(String nombre) {
+		File f = new File("resources/"+nombre);
 		if (f.exists() && f.isFile()) {
 			try {
-				equipos = deserializar();
+				equipo = deserializar(nombre);
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -482,15 +487,22 @@ public class Jugar extends JFrame {
 				e.printStackTrace();
 			}
 		} else if (!f.exists()) {
-			ArrayList<Equipo> equipos = new ArrayList<>();
-			equipos.add(RealMadrid());
-			equipos.add(RealMadrid());
-			equipos.add(Barcelona());
-			equipos.add(Cadiz());
-			equipos.add(Sevilla());
-			equipos.add(AtleticoDeMadrid());
 			try {
-				serializar(equipos);
+				if(nombre.equalsIgnoreCase("Real Madrid")) {
+					RealMadrid();
+				}
+				else if(nombre.equalsIgnoreCase("FC Barcelona")) {
+					Barcelona();
+				}
+				else if(nombre.equalsIgnoreCase("Cadiz CF")) {
+					Cadiz();
+				}
+				else if(nombre.equalsIgnoreCase("Sevilla FC")) {
+					Sevilla();
+				}
+				else if(nombre.equalsIgnoreCase("Atletico de Madrid")) {
+					AtleticoDeMadrid();
+				}
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -501,60 +513,61 @@ public class Jugar extends JFrame {
 		}
 	}
 
-	private void serializar(ArrayList<Equipo> eq) throws FileNotFoundException, IOException {
-		ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("resources/equipos"));
+	private void serializar(Equipo eq,String nombre) throws FileNotFoundException, IOException {
+		ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("resources/"+nombre));
 		os.writeObject(eq);
 		os.close();
 	}
 
-	private ArrayList<Equipo> deserializar() throws FileNotFoundException, IOException, ClassNotFoundException {
-		ObjectInputStream is = new ObjectInputStream(new FileInputStream("resources/equipos"));
-		return ((ArrayList<Equipo>) is.readObject());
-	}
-
-	private void cargarLocal() {
-		for (Equipo e : equipos) {
-			if (e.getNombre().equalsIgnoreCase(getNombreLocal())) {
-				eqLocal=e;
-			}
-
-		}
-		plantillaLocal=eqLocal.getPlantilla();
+	private Equipo deserializar(String nombre) throws FileNotFoundException, IOException, ClassNotFoundException {
+		ObjectInputStream is = new ObjectInputStream(new FileInputStream("resources/"+nombre));
+		return (Equipo) is.readObject();
 	}
 
 	private void cargarVisitante() {
+		String nvisitante;
 		do {
 			int visitante = (int) (Math.random() * 6 + 1);
-			eqVisitante = cargarEquipo(visitante);
-		} while (eqVisitante.getNombre() == eqLocal.getNombre());
-		plantillaVisitante = eqVisitante.getPlantilla();
+			nvisitante=cargarEquipo(visitante);
+		} while (nvisitante == eqLocal.getNombre());
+		escribirOLeer(nvisitante);
+		escribirOLeer(nvisitante);
+		eqVisitante=equipo;
+		plantillaVisitante=eqVisitante.getPlantilla();
+		
 	}
 
-	public Equipo cargarEquipo(int numero) {
-		for(Equipo e: equipos){
+	public String cargarEquipo(int numero) {
+		for(String e: equipos){
 			if (numero == 1) {
-				if(e.getNombre().equalsIgnoreCase("Real Madrid")) {
+				if(e.equalsIgnoreCase("Real Madrid")) {
 					return e;
 				}
 			} else if (numero == 2) {
-				if(e.getNombre().equalsIgnoreCase("FC Barcelona")) {
+				if(e.equalsIgnoreCase("FC Barcelona")) {
 					return e;
 				}
 			} else if (numero == 3) {
-				if(e.getNombre().equalsIgnoreCase("Cadiz CF")) {
+				if(e.equalsIgnoreCase("Cadiz CF")) {
 					return e;
 				}
 			} else if (numero == 4) {
-				if(e.getNombre().equalsIgnoreCase("Sevilla FC")) {
+				if(e.equalsIgnoreCase("Sevilla FC")) {
 					return e;
 				}
 			} else {
-				if(e.getNombre().equalsIgnoreCase("Atletico de Madrid")) {
+				if(e.equalsIgnoreCase("Atletico de Madrid")) {
 					return e;
 					}
 		}
 		}
 		return null;
+	}
+	public Equipo cargarEquipo() {
+		
+		
+		return equipo;
+		
 	}
 
 	public int lanzamiento(Jugador Jugador)  {

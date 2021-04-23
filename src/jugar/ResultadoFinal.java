@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.SystemColor;
+import javax.swing.SwingConstants;
 
 public class ResultadoFinal extends JFrame {
 	private int golesLocal;
@@ -37,7 +38,6 @@ public class ResultadoFinal extends JFrame {
 		setSize(800,600);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//setBounds(100, 100, 681, 660);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -51,19 +51,21 @@ public class ResultadoFinal extends JFrame {
 		golesVisitante=Jugar.golesVisitante;
 		
 		JLabel lblNewLabel = new JLabel(nombreLocal+" "+golesLocal+ " - " +golesVisitante+" "+nombreVisitante);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 37));
-		lblNewLabel.setBounds(130, 11, 529, 60);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblNewLabel.setBounds(10, 25, 764, 60);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("GANADOR");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 37));
-		lblNewLabel_1.setBounds(300, 114, 174, 60);
+		lblNewLabel_1.setBounds(10, 96, 764, 60);
 		contentPane.add(lblNewLabel_1);
 		
 		JButton btnNewButton = new JButton("INICIO");
 		btnNewButton.setBackground(SystemColor.activeCaption);
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton.setBounds(300, 496, 174, 54);
+		btnNewButton.setBounds(316, 496, 170, 54);
 		btnNewButton.addActionListener(new ActionListener() {
 
 			@Override
@@ -78,8 +80,9 @@ public class ResultadoFinal extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		escudoganador = new JLabel();
+		escudoganador.setHorizontalAlignment(SwingConstants.CENTER);
 		escudos();
-		escudoganador.setBounds(200, 185, 400, 300);
+		escudoganador.setBounds(10, 170, 764, 300);
 		contentPane.add(escudoganador);
 		
 	}

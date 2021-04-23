@@ -19,3 +19,19 @@ FC Barcelona;Atletico de Madrid;2;1
 Real Madrid;Sevilla FC;2;1
 Real Madrid;FC Barcelona;2;3
 Real Madrid;Sevilla FC;1;0
+Real Madrid;Atletico de Madrid;2;3
+Real Madrid;FC Barcelona;1;0
+Real Madrid;Atletico de Madrid;1;0
+Cadiz CF;FC Barcelona;0;1
+Cadiz CF;Atletico de Madrid;2;0
+Real Madrid;Atletico de Madrid;1;2
+Real Madrid;Atletico de Madrid;1;0
+Real Madrid;FC Barcelona;1;0
+Real Madrid;Cadiz CF;2;3
+Real Madrid;Atletico de Madrid;1;2
+Real Madrid;FC Barcelona;1;2
+Real Madrid;Atletico de Madrid;0;1
+Real Madrid;Atletico de Madrid;0;1
+Real Madrid;Sevilla FC;1;2
+Real Madrid;Atletico de Madrid;1;2
+Real Madrid;FC Barcelona;1;0

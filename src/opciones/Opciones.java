@@ -97,10 +97,16 @@ public class Opciones extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			try {
 			numLanzamientos=Integer.parseInt(numLanzamientostxt.getText());
 			Jugar j=new Jugar();
 			j.setVisible(true);
 			dispose();
+			}
+			catch(NumberFormatException ex) {
+				JOptionPane.showMessageDialog(Opciones.this, "Introduzca un valor númerico entero","Error",JOptionPane.ERROR_MESSAGE);
+			}
+			
 			//setVisible(false);
 	
 			
