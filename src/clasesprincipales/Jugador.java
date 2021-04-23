@@ -8,8 +8,8 @@ public class Jugador extends Componente implements Serializable{
 
 	public Jugador() {}
 
-	public Jugador(String nombre, String posicion, int dorsal, int precision) {
-		super(nombre);
+	public Jugador(String nombre, String foto, String posicion, int dorsal, int precision) {
+		super(nombre, foto);
 		this.posicion = posicion;
 		this.dorsal = dorsal;
 		this.precision = precision;
