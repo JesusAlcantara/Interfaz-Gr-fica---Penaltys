@@ -323,33 +323,18 @@ public class Jugar extends JFrame {
 
 	public void RealMadrid() throws FileNotFoundException, IOException {
 		ArrayList<Componente> plantillaRealMadrid = new ArrayList<>();
-<<<<<<< HEAD
-		Jugador j1 = new Jugador("Thibaut Courtois", 1, 40,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j2 = new Jugador("Dani Carvajal", 2, 70,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j3 = new Jugador("Raphael Varane", 3, 60,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j4 = new Jugador("Sergio Ramos", 4, 90,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j5 = new Jugador("Ferland Mendy", 5, 60,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j6 = new Jugador("Casemiro", 6, 70,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j7 = new Jugador("Eden Hazard", 7, 95,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j8 = new Jugador("Toni Kroos", 8, 95,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j9 = new Jugador("Karim Benzema", 9, 90,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j10 = new Jugador("Luka Modric", 10, 90,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j11 = new Jugador("Marco Asensio", 11, 85,"resources/plantilla/realmadrid/courtois.png");
-		Entrenador e1 = new Entrenador("Zidane", 45,"resources/plantilla/realmadrid/courtois.png");
-=======
-		Jugador j1 = new Jugador("Thibaut Courtois", 1, 40);
-		Jugador j2 = new Jugador("Dani Carvajal", 2, 70);
-		Jugador j3 = new Jugador("Raphael Varane", 5, 60);
-		Jugador j4 = new Jugador("Sergio Ramos", 4, 90);
-		Jugador j5 = new Jugador("Ferland Mendy", 23, 60);
-		Jugador j6 = new Jugador("Casemiro", 14, 70);
-		Jugador j7 = new Jugador("Eden Hazard", 7, 95);
-		Jugador j8 = new Jugador("Toni Kroos", 8, 95);
-		Jugador j9 = new Jugador("Karim Benzema", 9, 90);
-		Jugador j10 = new Jugador("Luka Modric", 10, 90);
-		Jugador j11 = new Jugador("Marco Asensio", 11, 85);
-		Entrenador e1 = new Entrenador("Zidane", 48);
->>>>>>> branch 'master' of https://github.com/JesusAlcantara/Interfaz-Gr-fica---Penaltys.git
+		Jugador j1 = new Jugador("Thibaut Courtois","resources/plantilla/realmadrid/courtois.png","Portero", 1, 40);
+		Jugador j2 = new Jugador("Dani Carvajal","resources/plantilla/realmadrid/courtois.png","	Defensa", 2, 70);
+		Jugador j3 = new Jugador("Raphael Varane","resources/plantilla/realmadrid/courtois.png","Defensa", 3, 60);
+		Jugador j4 = new Jugador("Sergio Ramos","resources/plantilla/realmadrid/courtois.png","Defensa", 4, 90);
+		Jugador j5 = new Jugador("Ferland Mendy","resources/plantilla/realmadrid/courtois.png","Defensa", 5, 60);
+		Jugador j6 = new Jugador("Casemiro","resources/plantilla/realmadrid/courtois.png","Centrocampista", 6, 70);
+		Jugador j7 = new Jugador("Eden Hazard","resources/plantilla/realmadrid/courtois.png","Extremo", 7, 95);
+		Jugador j8 = new Jugador("Toni Kroos","resources/plantilla/realmadrid/courtois.png","Centrocampista", 8, 95);
+		Jugador j9 = new Jugador("Karim Benzema","resources/plantilla/realmadrid/courtois.png","Delantero", 9, 90);
+		Jugador j10 = new Jugador("Luka Modric","resources/plantilla/realmadrid/courtois.png","Centrocampista", 10, 90);
+		Jugador j11 = new Jugador("Marco Asensio","resources/plantilla/realmadrid/courtois.png","Extremo", 11, 85);
+		Entrenador e1 = new Entrenador("Zidane","resources/plantilla/realmadrid/courtois.png", 45);
 		plantillaRealMadrid.add(j1);
 		plantillaRealMadrid.add(j2);
 		plantillaRealMadrid.add(j3);
@@ -362,39 +347,24 @@ public class Jugar extends JFrame {
 		plantillaRealMadrid.add(j10);
 		plantillaRealMadrid.add(j11);
 		plantillaRealMadrid.add(e1);
-		Equipo eq1 = new Equipo("Real Madrid", "Madrid", "Santiago Bernabeu", plantillaRealMadrid,"resources/plantilla/realmadrid/realmadridJugar.png");
+		Equipo eq1 = new Equipo("Real Madrid","", "Madrid", "Santiago Bernabeu", plantillaRealMadrid);
 		serializar(eq1,"Real Madrid");
 	}
 
 	public void Barcelona() throws FileNotFoundException, IOException {
 		ArrayList<Componente> plantillaBarcelona = new ArrayList<>();
-<<<<<<< HEAD
-		Jugador j1 = new Jugador("ter Stegen", 1, 40,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j2 = new Jugador("Dest", 2, 60,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j3 = new Jugador("Pique Gerard", 3, 70,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j4 = new Jugador("Lenglet Clement", 4, 70,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j5 = new Jugador("Alba Jordi", 5, 60,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j6 = new Jugador("Busquets Sergio", 6, 85,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j7 = new Jugador("Pedri", 7, 80,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j8 = new Jugador("de Jong Frenkie", 8, 80,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j9 = new Jugador("Griezmann Antoine", 9, 70,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j10 = new Jugador("Messi Lionel", 10, 90,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j11 = new Jugador("Dembele Ousmane", 11, 85,"resources/plantilla/realmadrid/courtois.png");
-		Entrenador e1 = new Entrenador("Koeman", 45,"resources/plantilla/realmadrid/courtois.png");
-=======
-		Jugador j1 = new Jugador("ter Stegen", 1, 40);
-		Jugador j2 = new Jugador("Dest", 2, 60);
-		Jugador j3 = new Jugador("Gerard Piqué", 3, 70);
-		Jugador j4 = new Jugador("Clément Lenglet", 15, 70);
-		Jugador j5 = new Jugador("Alba Jordi", 18, 60);
-		Jugador j6 = new Jugador("Sergio Busquets", 5, 85);
-		Jugador j7 = new Jugador("Pedri", 16, 80);
-		Jugador j8 = new Jugador("Frenkie de Jong", 21, 80);
-		Jugador j9 = new Jugador("Antoine Griezmann", 7, 70);
-		Jugador j10 = new Jugador("Lionel Messi", 10, 90);
-		Jugador j11 = new Jugador("Ousmane Dembélé", 11, 85);
-		Entrenador e1 = new Entrenador("Koeman", 58);
->>>>>>> branch 'master' of https://github.com/JesusAlcantara/Interfaz-Gr-fica---Penaltys.git
+		Jugador j1 = new Jugador("ter Stegen","","", 1, 40);
+		Jugador j2 = new Jugador("Dest","resources/plantilla/realmadrid/courtois.png","", 2, 60);
+		Jugador j3 = new Jugador("Pique Gerard","resources/plantilla/realmadrid/courtois.png","", 3, 70);
+		Jugador j4 = new Jugador("Lenglet Clement","resources/plantilla/realmadrid/courtois.png","", 4, 70);
+		Jugador j5 = new Jugador("Alba Jordi","resources/plantilla/realmadrid/courtois.png","", 5, 60);
+		Jugador j6 = new Jugador("Busquets Sergio","resources/plantilla/realmadrid/courtois.png","", 6, 85);
+		Jugador j7 = new Jugador("Pedri","resources/plantilla/realmadrid/courtois.png","", 7, 80);
+		Jugador j8 = new Jugador("de Jong Frenkie","resources/plantilla/realmadrid/courtois.png","", 8, 80);
+		Jugador j9 = new Jugador("Griezmann Antoine","resources/plantilla/realmadrid/courtois.png","", 9, 70);
+		Jugador j10 = new Jugador("Messi Lionel","resources/plantilla/realmadrid/courtois.png","", 10, 90);
+		Jugador j11 = new Jugador("Dembele Ousmane","resources/plantilla/realmadrid/courtois.png","", 11, 85);
+		Entrenador e1 = new Entrenador("Koeman","resources/plantilla/realmadrid/courtois.png", 45);
 		plantillaBarcelona.add(j1);
 		plantillaBarcelona.add(j2);
 		plantillaBarcelona.add(j3);
@@ -407,39 +377,24 @@ public class Jugar extends JFrame {
 		plantillaBarcelona.add(j10);
 		plantillaBarcelona.add(j11);
 		plantillaBarcelona.add(e1);
-		Equipo eq1 = new Equipo("FC Barcelona", "Barcelona", "Camp Nou", plantillaBarcelona,"resources/plantilla/realmadrid/courtois.png");
+		Equipo eq1 = new Equipo("FC Barcelona","resources/plantilla/realmadrid/courtois.png", "Barcelona", "Camp Nou", plantillaBarcelona);
 		serializar(eq1,"FC Barcelona");
 	}
 
 	public void Cadiz() throws FileNotFoundException, IOException {
 		ArrayList<Componente> plantillaCadiz = new ArrayList<>();
-<<<<<<< HEAD
-		Jugador j1 = new Jugador("Ledesma Jeremias", 1, 40,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j2 = new Jugador("Isaac Carcelen", 2, 60,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j3 = new Jugador("Fali", 3, 70,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j4 = new Jugador("Juan Cala", 4, 70,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j5 = new Jugador("Pacha Espino", 5, 60,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j6 = new Jugador("Jose mari", 6, 85,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j7 = new Jugador("Salvi", 7, 80,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j8 = new Jugador("Alex Fernandez", 8, 90,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j9 = new Jugador("Choco Lozano", 9, 70,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j10 = new Jugador("Negredo", 10, 90,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j11 = new Jugador("Perea", 11, 80,"resources/plantilla/realmadrid/courtois.png");
-		Entrenador e1 = new Entrenador("Cervera", 45,"resources/plantilla/realmadrid/courtois.png");
-=======
-		Jugador j1 = new Jugador("Jeremías Ledesma", 1, 40);
-		Jugador j2 = new Jugador("Isaac Carcelén", 20, 60);
-		Jugador j3 = new Jugador("Fali", 3, 70);
-		Jugador j4 = new Jugador("Juan Cala", 16, 70);
-		Jugador j5 = new Jugador("Pacha Espino", 22, 60);
-		Jugador j6 = new Jugador("José Mari", 6, 85);
-		Jugador j7 = new Jugador("Salvi", 7, 80);
-		Jugador j8 = new Jugador("Álex Fernandez", 8, 90);
-		Jugador j9 = new Jugador("Choco Lozano", 9, 70);
-		Jugador j10 = new Jugador("Negredo", 18, 90);
-		Jugador j11 = new Jugador("Perea", 10, 80);
-		Entrenador e1 = new Entrenador("Cervera", 55);
->>>>>>> branch 'master' of https://github.com/JesusAlcantara/Interfaz-Gr-fica---Penaltys.git
+		Jugador j1 = new Jugador("Ledesma Jeremias","resources/plantilla/realmadrid/courtois.png","", 1, 40);
+		Jugador j2 = new Jugador("Isaac Carcelen","resources/plantilla/realmadrid/courtois.png","", 2, 60);
+		Jugador j3 = new Jugador("Fali","resources/plantilla/realmadrid/courtois.png","", 3, 70);
+		Jugador j4 = new Jugador("Juan Cala","resources/plantilla/realmadrid/courtois.png","", 4, 70);
+		Jugador j5 = new Jugador("Pacha Espino","resources/plantilla/realmadrid/courtois.png","", 5, 60);
+		Jugador j6 = new Jugador("Jose mari","resources/plantilla/realmadrid/courtois.png","", 6, 85);
+		Jugador j7 = new Jugador("Salvi","resources/plantilla/realmadrid/courtois.png","", 7, 80);
+		Jugador j8 = new Jugador("Alex Fernandez","resources/plantilla/realmadrid/courtois.png","", 8, 90);
+		Jugador j9 = new Jugador("Choco Lozano","resources/plantilla/realmadrid/courtois.png","", 9, 70);
+		Jugador j10 = new Jugador("Negredo","resources/plantilla/realmadrid/courtois.png","", 10, 90);
+		Jugador j11 = new Jugador("Perea","resources/plantilla/realmadrid/courtois.png","", 11, 80);
+		Entrenador e1 = new Entrenador("Cervera","resources/plantilla/realmadrid/courtois.png", 45);
 		plantillaCadiz.add(j1);
 		plantillaCadiz.add(j2);
 		plantillaCadiz.add(j3);
@@ -452,39 +407,24 @@ public class Jugar extends JFrame {
 		plantillaCadiz.add(j10);
 		plantillaCadiz.add(j11);
 		plantillaCadiz.add(e1);
-		Equipo eq1 = new Equipo("Cadiz CF", "Cadiz", "Ramon de Carranza", plantillaCadiz,"resources/plantilla/realmadrid/courtois.png");
+		Equipo eq1 = new Equipo("Cadiz CF","resources/plantilla/realmadrid/courtois.png", "Cadiz", "Ramon de Carranza", plantillaCadiz);
 		serializar(eq1,"Cadiz CF");
 	}
 
 	public void AtleticoDeMadrid() throws FileNotFoundException, IOException {
 		ArrayList<Componente> plantillaAtleticoDeMadrid = new ArrayList<>();
-<<<<<<< HEAD
-		Jugador j1 = new Jugador("Oblack", 1, 40,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j2 = new Jugador("Trippier", 2, 60,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j3 = new Jugador("Gimenez", 3, 70,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j4 = new Jugador("Savic", 4, 70,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j5 = new Jugador("Lodi", 5, 60,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j6 = new Jugador("Koke", 6, 80,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j7 = new Jugador("Joao Felix", 7, 90,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j8 = new Jugador("Marcos Llorente", 8, 80,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j9 = new Jugador("Luis Suarez", 9, 90,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j10 = new Jugador("Lemar", 10, 90,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j11 = new Jugador("Yannick Carrasco", 11, 90,"resources/plantilla/realmadrid/courtois.png");
-		Entrenador e1 = new Entrenador("Simeone", 45,"resources/plantilla/realmadrid/courtois.png");
-=======
-		Jugador j1 = new Jugador("Oblak", 13, 40);
-		Jugador j2 = new Jugador("Trippier", 23, 60);
-		Jugador j3 = new Jugador("Gimenez", 2, 70);
-		Jugador j4 = new Jugador("Savic", 15, 70);
-		Jugador j5 = new Jugador("Lodi", 12, 60);
-		Jugador j6 = new Jugador("Koke", 6, 80);
-		Jugador j7 = new Jugador("Joao Félix", 7, 90);
-		Jugador j8 = new Jugador("Marcos Llorente", 14, 80);
-		Jugador j9 = new Jugador("Luis Suárez", 9, 90);
-		Jugador j10 = new Jugador("Lemar", 11, 90);
-		Jugador j11 = new Jugador("Yannick Carrasco", 21, 90);
-		Entrenador e1 = new Entrenador("Simeone", 50);
->>>>>>> branch 'master' of https://github.com/JesusAlcantara/Interfaz-Gr-fica---Penaltys.git
+		Jugador j1 = new Jugador("Oblack","resources/plantilla/realmadrid/courtois.png","", 1, 40);
+		Jugador j2 = new Jugador("Trippier","resources/plantilla/realmadrid/courtois.png","", 2, 60);
+		Jugador j3 = new Jugador("Gimenez","resources/plantilla/realmadrid/courtois.png","", 3, 70);
+		Jugador j4 = new Jugador("Savic","resources/plantilla/realmadrid/courtois.png","", 4, 70);
+		Jugador j5 = new Jugador("Lodi","resources/plantilla/realmadrid/courtois.png","", 5, 60);
+		Jugador j6 = new Jugador("Koke","resources/plantilla/realmadrid/courtois.png","", 6, 80);
+		Jugador j7 = new Jugador("Joao Felix","resources/plantilla/realmadrid/courtois.png","", 7, 90);
+		Jugador j8 = new Jugador("Marcos Llorente","resources/plantilla/realmadrid/courtois.png","", 8, 80);
+		Jugador j9 = new Jugador("Luis Suarez","resources/plantilla/realmadrid/courtois.png","", 9, 90);
+		Jugador j10 = new Jugador("Lemar","resources/plantilla/realmadrid/courtois.png","", 10, 90);
+		Jugador j11 = new Jugador("Yannick Carrasco","resources/plantilla/realmadrid/courtois.png","", 11, 90);
+		Entrenador e1 = new Entrenador("Simeone","resources/plantilla/realmadrid/courtois.png", 45);
 		plantillaAtleticoDeMadrid.add(j1);
 		plantillaAtleticoDeMadrid.add(j2);
 		plantillaAtleticoDeMadrid.add(j3);
@@ -497,39 +437,24 @@ public class Jugar extends JFrame {
 		plantillaAtleticoDeMadrid.add(j10);
 		plantillaAtleticoDeMadrid.add(j11);
 		plantillaAtleticoDeMadrid.add(e1);
-		Equipo eq1 = new Equipo("Atletico de Madrid", "Madrid", "Wanda Metropolitano", plantillaAtleticoDeMadrid,"resources/plantilla/realmadrid/courtois.png");
+		Equipo eq1 = new Equipo("Atletico de Madrid","resources/plantilla/realmadrid/courtois.png", "Madrid", "Wanda Metropolitano", plantillaAtleticoDeMadrid);
 		serializar(eq1,"Atletico de Madrid");
 	}
 
 	public void Sevilla() throws FileNotFoundException, IOException {
 		ArrayList<Componente> plantillaSevilla = new ArrayList<>();
-<<<<<<< HEAD
-		Jugador j1 = new Jugador("Bono", 1, 40,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j2 = new Jugador("Jesus Navas", 2, 80,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j3 = new Jugador("Diego Carlos", 3, 70,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j4 = new Jugador("Kounde", 4, 70,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j5 = new Jugador("Acuña", 5, 60,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j6 = new Jugador("Fernando", 6, 80,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j7 = new Jugador("Suso", 7, 80,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j8 = new Jugador("Jordan", 8, 80,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j9 = new Jugador("En-Nesyri", 9, 70,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j10 = new Jugador("Rakitic", 10, 90,"resources/plantilla/realmadrid/courtois.png");
-		Jugador j11 = new Jugador("Ocampos", 11, 85,"resources/plantilla/realmadrid/courtois.png");
-		Entrenador e1 = new Entrenador("Lopetegui", 45,"resources/plantilla/realmadrid/courtois.png");
-=======
-		Jugador j1 = new Jugador("Bono", 13, 40);
-		Jugador j2 = new Jugador("Jesús Navas", 16, 80);
-		Jugador j3 = new Jugador("Diego Carlos", 20, 70);
-		Jugador j4 = new Jugador("Koundé", 12, 70);
-		Jugador j5 = new Jugador("Acuña", 19, 60);
-		Jugador j6 = new Jugador("Fernando", 25, 80);
-		Jugador j7 = new Jugador("Suso", 7, 80);
-		Jugador j8 = new Jugador("Jordan", 8, 80);
-		Jugador j9 = new Jugador("En-Nesyri", 15, 70);
-		Jugador j10 = new Jugador("Rakitic", 10, 90);
-		Jugador j11 = new Jugador("Ocampos", 5, 85);
-		Entrenador e1 = new Entrenador("Lopetegui", 54);
->>>>>>> branch 'master' of https://github.com/JesusAlcantara/Interfaz-Gr-fica---Penaltys.git
+		Jugador j1 = new Jugador("Bono","resources/plantilla/realmadrid/courtois.png","", 1, 40);
+		Jugador j2 = new Jugador("Jesus Navas","resources/plantilla/realmadrid/courtois.png","", 2, 80);
+		Jugador j3 = new Jugador("Diego Carlos","resources/plantilla/realmadrid/courtois.png","", 3, 70);
+		Jugador j4 = new Jugador("Kounde","resources/plantilla/realmadrid/courtois.png","", 4, 70);
+		Jugador j5 = new Jugador("Acuña","resources/plantilla/realmadrid/courtois.png","", 5, 60);
+		Jugador j6 = new Jugador("Fernando","resources/plantilla/realmadrid/courtois.png","", 6, 80);
+		Jugador j7 = new Jugador("Suso","resources/plantilla/realmadrid/courtois.png","", 7, 80);
+		Jugador j8 = new Jugador("Jordan","resources/plantilla/realmadrid/courtois.png","", 8, 80);
+		Jugador j9 = new Jugador("En-Nesyri","resources/plantilla/realmadrid/courtois.png","", 9, 70);
+		Jugador j10 = new Jugador("Rakitic","resources/plantilla/realmadrid/courtois.png","", 10, 90);
+		Jugador j11 = new Jugador("Ocampos","resources/plantilla/realmadrid/courtois.png","", 11, 85);
+		Entrenador e1 = new Entrenador("Lopetegui","resources/plantilla/realmadrid/courtois.png", 45);
 		plantillaSevilla.add(j1);
 		plantillaSevilla.add(j2);
 		plantillaSevilla.add(j3);
@@ -542,7 +467,7 @@ public class Jugar extends JFrame {
 		plantillaSevilla.add(j10);
 		plantillaSevilla.add(j11);
 		plantillaSevilla.add(e1);
-		Equipo eq1 = new Equipo("Sevilla FC", "Sevilla", "Ramon Sanchez Pizjuan", plantillaSevilla,"resources/plantilla/realmadrid/realmadridJugar.png");
+		Equipo eq1 = new Equipo("Sevilla FC","resources/plantilla/realmadrid/courtois.png", "Sevilla", "Ramon Sanchez Pizjuan", plantillaSevilla);
 		serializar(eq1,"Sevilla FC");
 	}
 

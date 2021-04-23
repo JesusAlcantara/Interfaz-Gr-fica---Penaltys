@@ -19,7 +19,6 @@ FC Barcelona;Atletico de Madrid;2;1
 Real Madrid;Sevilla FC;2;1
 Real Madrid;FC Barcelona;2;3
 Real Madrid;Sevilla FC;1;0
-<<<<<<< HEAD
 Real Madrid;Atletico de Madrid;2;3
 Real Madrid;FC Barcelona;1;0
 Real Madrid;Atletico de Madrid;1;0
@@ -36,6 +35,5 @@ Real Madrid;Atletico de Madrid;0;1
 Real Madrid;Sevilla FC;1;2
 Real Madrid;Atletico de Madrid;1;2
 Real Madrid;FC Barcelona;1;0
-=======
 Atletico de Madrid;FC Barcelona;1;2
->>>>>>> branch 'master' of https://github.com/JesusAlcantara/Interfaz-Gr-fica---Penaltys.git
+FC Barcelona;Cadiz CF;1;0
