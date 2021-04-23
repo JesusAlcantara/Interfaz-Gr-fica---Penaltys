@@ -4,13 +4,13 @@ import java.io.Serializable;
 
 public class Jugador extends Componente implements Serializable{
 	private int dorsal, precision;
+	private String posicion;
 
-	public Jugador() {
+	public Jugador() {}
 
-	}
-
-	public Jugador(String nombre, int dorsal, int precision) {
-		super(nombre);
+	public Jugador(String nombre, String foto, String posicion, int dorsal, int precision) {
+		super(nombre, foto);
+		this.posicion = posicion;
 		this.dorsal = dorsal;
 		this.precision = precision;
 	}
@@ -31,9 +31,17 @@ public class Jugador extends Componente implements Serializable{
 		this.precision = precision;
 	}
 
+	public String getPosicion() {
+		return posicion;
+	}
+
+	public void setPosicion(String posicion) {
+		this.posicion = posicion;
+	}
+
 	@Override
 	public String toString() {
-		return "Dorsal:" + dorsal + ", Nombre: " + getNombre() + ", Precision: " + precision;
+		return "Dorsal:" + dorsal + ", Nombre: " + getNombre() + ", Posición: " + posicion + ", Precision: " + precision;
 	}
 
 }

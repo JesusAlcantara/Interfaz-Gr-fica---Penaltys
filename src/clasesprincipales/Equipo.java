@@ -8,11 +8,13 @@ public class Equipo implements Serializable{
 	private String ciudad;
 	private String estadio;
 	private ArrayList<Componente> plantilla;
+	private String foto;
 
-	public Equipo(String nombre, String ciudad, String estadio, ArrayList<Componente> plantilla) {
+	public Equipo(String nombre, String ciudad, String estadio, String foto, ArrayList<Componente> plantilla) {
 		this.nombre = nombre;
 		this.ciudad = ciudad;
 		this.estadio = estadio;
+		this.foto = foto;
 		this.plantilla = plantilla;
 	}
 
@@ -38,6 +40,14 @@ public class Equipo implements Serializable{
 
 	public void setEstadio(String estadio) {
 		this.estadio = estadio;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 
 	public ArrayList<Componente> getPlantilla() {

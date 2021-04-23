@@ -5,8 +5,8 @@ import java.io.Serializable;
 public class Entrenador extends Componente implements Serializable{
 	private int edad;
 
-	public Entrenador(String nombre, int edad) {
-		super(nombre);
+	public Entrenador(String nombre, String foto, int edad) {
+		super(nombre, foto);
 		this.edad = edad;
 	}
 
