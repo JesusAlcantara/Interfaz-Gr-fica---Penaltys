@@ -19,3 +19,4 @@ FC Barcelona;Atletico de Madrid;2;1
 Real Madrid;Sevilla FC;2;1
 Real Madrid;FC Barcelona;2;3
 Real Madrid;Sevilla FC;1;0
+Atletico de Madrid;FC Barcelona;1;2
