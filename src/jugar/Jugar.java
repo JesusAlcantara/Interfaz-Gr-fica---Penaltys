@@ -47,6 +47,7 @@ public class Jugar extends JFrame {
 	public static ArrayList<Componente> plantillaVisitante = new ArrayList<>();
 	private Equipo equipo;
 	private String nombreLocal;
+	private String nombreVisitante;
 	private int numLanzamientos;
 	private JPanel contentPane;
 	public static int golesLocal = 0;
@@ -66,8 +67,10 @@ public class Jugar extends JFrame {
 	private String[] nombrePV;
 	JLabel escudoLocal;
 	JLabel escudoVisitante;
-	ImageIcon gol=new ImageIcon("resources/escudos/realmadrid.png");
-	String [] equipos= {"Real Madrid","FC Barcelona","Atletico de Madrid","Sevilla FC","Cadiz CF"};
+	Icon gol=new ImageIcon("resources/imagenesLanzamiento/gol.png");
+	Icon palo=new ImageIcon("resources/imagenesLanzamiento/palo.png");
+	Icon parada=new ImageIcon("resources/imagenesLanzamiento/parada.png");
+	//String [] equipos= {"Real Madrid","FC Barcelona","Atletico de Madrid","Sevilla FC","Cadiz CF"};
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Jugar() {
@@ -89,6 +92,10 @@ public class Jugar extends JFrame {
 		eqLocal=equipo;
 		plantillaLocal=eqLocal.getPlantilla();
 		cargarVisitante();
+		escribirOLeer(nombreVisitante);
+		escribirOLeer(nombreVisitante);
+		eqVisitante=equipo;
+		plantillaVisitante=eqVisitante.getPlantilla();
 		
 		
 		
@@ -105,14 +112,15 @@ public class Jugar extends JFrame {
 		contentPane.add(nombreV);
 
 		escudoLocal = new JLabel();
-		
+		escudoLocal.setIcon(new ImageIcon(eqLocal.getFoto()));
 		escudoLocal.setBounds(50, 91, 210, 170);
 		contentPane.add(escudoLocal);
 
 		escudoVisitante = new JLabel();
+		escudoVisitante.setIcon(new ImageIcon(eqVisitante.getFoto()));
 		escudoVisitante.setBounds(540, 91, 210, 170);
 		contentPane.add(escudoVisitante);
-		cargarEscudos();
+		
 		JLabel lblNewLabel_4 = new JLabel("Jugadores");
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
@@ -187,13 +195,13 @@ public class Jugar extends JFrame {
 				int lanzamiento=lanzamiento(buscarJugador(dorsalLanzador));
 				if(lanzamiento==1) {
 					golesLocal++;
-					JOptionPane.showMessageDialog(Jugar.this, "Gooool","Gol",JOptionPane.INFORMATION_MESSAGE/*,gol*/);
+					JOptionPane.showMessageDialog(Jugar.this, "Gooooooool","Gol",JOptionPane.INFORMATION_MESSAGE,gol);
 				}
 				else if(lanzamiento==-1) {
-					JOptionPane.showMessageDialog(Jugar.this, "Al paloooo");
+					JOptionPane.showMessageDialog(Jugar.this, "Al paloooo!!","Palo",JOptionPane.INFORMATION_MESSAGE,palo);
 				}
 				else if(lanzamiento==0){
-					JOptionPane.showMessageDialog(Jugar.this, "Fueraaaa");
+					JOptionPane.showMessageDialog(Jugar.this, "Paradon del portero!!","Parada",JOptionPane.INFORMATION_MESSAGE,parada);
 				}
 				plantillaLocal.remove(buscarJugador(dorsalLanzador));
 				nombrePL=mostrarLocal();
@@ -207,13 +215,13 @@ public class Jugar extends JFrame {
 				lanzamiento=lanzamiento(buscarJugadorV(lanzador2));
 				if(lanzamiento==1) {
 					golesVisitante++;
-					JOptionPane.showMessageDialog(Jugar.this, "Goooool");
+					JOptionPane.showMessageDialog(Jugar.this, "Gooooooool","Gol",JOptionPane.INFORMATION_MESSAGE,gol);
 				}
 				else if(lanzamiento==-1) {
-					JOptionPane.showMessageDialog(Jugar.this, "Al paloooo");
+					JOptionPane.showMessageDialog(Jugar.this, "Al paloooo!!","Palo",JOptionPane.INFORMATION_MESSAGE,palo);
 				}
 				else if(lanzamiento==0){
-					JOptionPane.showMessageDialog(Jugar.this, "Fueraaaa");
+					JOptionPane.showMessageDialog(Jugar.this, "Paradon del portero!!","Parada",JOptionPane.INFORMATION_MESSAGE,parada);
 				}
 				plantillaVisitante.remove(buscarJugadorV(lanzador2));
 				nombrePV=mostrarVisitante();
@@ -259,13 +267,13 @@ public class Jugar extends JFrame {
 							int lanzamiento=lanzamiento(buscarJugador(dorsalLanzador));
 							if(lanzamiento==1) {
 								golesLocal++;
-								JOptionPane.showMessageDialog(Jugar.this, "Goooool");
+								JOptionPane.showMessageDialog(Jugar.this, "Gooooooool","Gol",JOptionPane.INFORMATION_MESSAGE,gol);
 							}
 							else if(lanzamiento==-1) {
-								JOptionPane.showMessageDialog(Jugar.this, "Al paloooo");
+								JOptionPane.showMessageDialog(Jugar.this, "Al paloooo!!","Palo",JOptionPane.INFORMATION_MESSAGE,palo);
 							}
 							else if(lanzamiento==0){
-								JOptionPane.showMessageDialog(Jugar.this, "Fueraaaa");
+								JOptionPane.showMessageDialog(Jugar.this, "Paradon del portero!!","Parada",JOptionPane.INFORMATION_MESSAGE,parada);
 							}
 							plantillaLocal.remove(buscarJugador(dorsalLanzador));
 							nombrePL=mostrarLocal();
@@ -279,13 +287,13 @@ public class Jugar extends JFrame {
 							lanzamiento=lanzamiento(buscarJugadorV(lanzador2));
 							if(lanzamiento==1) {
 								golesVisitante++;
-								JOptionPane.showMessageDialog(Jugar.this, "Goooool");
+								JOptionPane.showMessageDialog(Jugar.this, "Gooooooool","Gol",JOptionPane.INFORMATION_MESSAGE,gol);
 							}
 							else if(lanzamiento==-1) {
-								JOptionPane.showMessageDialog(Jugar.this, "Al paloooo");
+								JOptionPane.showMessageDialog(Jugar.this, "Al paloooo!!","Palo",JOptionPane.INFORMATION_MESSAGE,palo);
 							}
 							else if(lanzamiento==0){
-								JOptionPane.showMessageDialog(Jugar.this, "Fueraaaa");
+								JOptionPane.showMessageDialog(Jugar.this, "Paradon del portero!!","Parada",JOptionPane.INFORMATION_MESSAGE,parada);
 							}
 							plantillaVisitante.remove(buscarJugadorV(lanzador2));
 							nombrePV=mostrarVisitante();
@@ -347,7 +355,7 @@ public class Jugar extends JFrame {
 		plantillaRealMadrid.add(j10);
 		plantillaRealMadrid.add(j11);
 		plantillaRealMadrid.add(e1);
-		Equipo eq1 = new Equipo("Real Madrid", "Madrid", "Santiago Bernabeu","resources/escudos/realmadrid.png", plantillaRealMadrid);
+		Equipo eq1 = new Equipo("Real Madrid", "Madrid", "Santiago Bernabeu","resources/escudos/realmadridJugar.png", plantillaRealMadrid);
 		serializar(eq1,"Real Madrid");
 	}
 
@@ -377,7 +385,7 @@ public class Jugar extends JFrame {
 		plantillaBarcelona.add(j10);
 		plantillaBarcelona.add(j11);
 		plantillaBarcelona.add(e1);
-		Equipo eq1 = new Equipo("FC Barcelona", "Barcelona", "Camp Nou","resources/escudos/barcelona.png", plantillaBarcelona);
+		Equipo eq1 = new Equipo("FC Barcelona", "Barcelona", "Camp Nou","resources/escudos/barcelonaJugar.png", plantillaBarcelona);
 		serializar(eq1,"FC Barcelona");
 	}
 
@@ -407,7 +415,7 @@ public class Jugar extends JFrame {
 		plantillaCadiz.add(j10);
 		plantillaCadiz.add(j11);
 		plantillaCadiz.add(e1);
-		Equipo eq1 = new Equipo("Cadiz CF","resources/plantilla/realmadrid/courtois.png", "Cadiz", "Ramón de Carranza", plantillaCadiz);
+		Equipo eq1 = new Equipo("Cadiz CF", "Cadiz", "Ramón de Carranza","resources/escudos/cadizJugar.png", plantillaCadiz);
 		serializar(eq1,"Cadiz CF");
 	}
 
@@ -437,7 +445,7 @@ public class Jugar extends JFrame {
 		plantillaAtleticoDeMadrid.add(j10);
 		plantillaAtleticoDeMadrid.add(j11);
 		plantillaAtleticoDeMadrid.add(e1);
-		Equipo eq1 = new Equipo("Atletico de Madrid","resources/escudos/atleticoJugar.png", "Madrid", "Wanda Metropolitano", plantillaAtleticoDeMadrid);
+		Equipo eq1 = new Equipo("Atletico de Madrid", "Madrid", "Wanda Metropolitano","resources/escudos/atleticoJugar.png", plantillaAtleticoDeMadrid);
 		serializar(eq1,"Atletico de Madrid");
 	}
 
@@ -467,7 +475,7 @@ public class Jugar extends JFrame {
 		plantillaSevilla.add(j10);
 		plantillaSevilla.add(j11);
 		plantillaSevilla.add(e1);
-		Equipo eq1 = new Equipo("Sevilla FC", "Sevilla", "Ramón Sánchez Pizjuán","resources/escudos/sevilla.png", plantillaSevilla);
+		Equipo eq1 = new Equipo("Sevilla FC", "Sevilla", "Ramón Sánchez Pizjuán","resources/escudos/sevillaJugar.png", plantillaSevilla);
 		serializar(eq1,"Sevilla FC");
 	}
 
@@ -475,7 +483,7 @@ public class Jugar extends JFrame {
 		File f = new File("resources/"+nombre);
 		if (f.exists() && f.isFile()) {
 			try {
-				equipo = deserializar(nombre);
+				equipo = deserializar(f);
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -519,26 +527,21 @@ public class Jugar extends JFrame {
 		os.close();
 	}
 
-	private Equipo deserializar(String nombre) throws FileNotFoundException, IOException, ClassNotFoundException {
-		ObjectInputStream is = new ObjectInputStream(new FileInputStream("resources/"+nombre));
+	private Equipo deserializar(File nombre) throws FileNotFoundException, IOException, ClassNotFoundException {
+		ObjectInputStream is = new ObjectInputStream(new FileInputStream(nombre));
 		return (Equipo) is.readObject();
 	}
 
 	private void cargarVisitante() {
-		String nvisitante;
 		do {
-			int visitante = (int) (Math.random() * 6 + 1);
-			nvisitante=cargarEquipo(visitante);
-		} while (nvisitante == eqLocal.getNombre());
-		escribirOLeer(nvisitante);
-		escribirOLeer(nvisitante);
-		eqVisitante=equipo;
-		plantillaVisitante=eqVisitante.getPlantilla();
+			int visitante = (int) (Math.random() * 5 + 1);
+			nombreVisitante=cargarEquipo(visitante);
+		} while (nombreVisitante == nombreLocal);
 		
 	}
 
 	public String cargarEquipo(int numero) {
-		for(String e: equipos){
+		for(String e: Opciones.equipos){
 			if (numero == 1) {
 				if(e.equalsIgnoreCase("Real Madrid")) {
 					return e;
@@ -555,7 +558,7 @@ public class Jugar extends JFrame {
 				if(e.equalsIgnoreCase("Sevilla FC")) {
 					return e;
 				}
-			} else {
+			} else if (numero==5){
 				if(e.equalsIgnoreCase("Atletico de Madrid")) {
 					return e;
 					}
@@ -629,38 +632,6 @@ public class Jugar extends JFrame {
 			}
 		}
 		return jugadores;
-	}
-	private void cargarEscudos() {
-		if(eqLocal.getNombre().equalsIgnoreCase("Real Madrid")) {
-			escudoLocal.setIcon(new ImageIcon("resources/escudos/realmadridJugar.png"));
-		}
-		else if(eqLocal.getNombre().equalsIgnoreCase("FC Barcelona")) {
-			escudoLocal.setIcon(new ImageIcon("resources/escudos/barcelonaJugar.png"));
-		}
-		else if(eqLocal.getNombre().equalsIgnoreCase("Cadiz CF")) {
-			escudoLocal.setIcon(new ImageIcon("resources/escudos/cadizJugar.png"));
-		}
-		else if(eqLocal.getNombre().equalsIgnoreCase("Sevilla FC")) {
-			escudoLocal.setIcon(new ImageIcon("resources/escudos/sevillaJugar.png"));
-		}
-		else if(eqLocal.getNombre().equalsIgnoreCase("Atletico de Madrid")) {
-			escudoLocal.setIcon(new ImageIcon("resources/escudos/atleticoJugar.png"));
-		}
-		if(eqVisitante.getNombre().equalsIgnoreCase("Real Madrid")) {
-			escudoVisitante.setIcon(new ImageIcon("resources/escudos/realmadridJugar.png"));
-		}
-		else if(eqVisitante.getNombre().equalsIgnoreCase("FC Barcelona")) {
-			escudoVisitante.setIcon(new ImageIcon("resources/escudos/barcelonaJugar.png"));
-		}
-		else if(eqVisitante.getNombre().equalsIgnoreCase("Cadiz CF")) {
-			escudoVisitante.setIcon(new ImageIcon("resources/escudos/cadizJugar.png"));
-		}
-		else if(eqVisitante.getNombre().equalsIgnoreCase("Sevilla FC")) {
-			escudoVisitante.setIcon(new ImageIcon("resources/escudos/sevillaJugar.png"));
-		}
-		else if(eqVisitante.getNombre().equalsIgnoreCase("Atletico de Madrid")) {
-			escudoVisitante.setIcon(new ImageIcon("resources/escudos/atleticoJugar.png"));
-		}
 	}
 	
 }

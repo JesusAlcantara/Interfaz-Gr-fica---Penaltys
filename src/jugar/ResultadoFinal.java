@@ -34,7 +34,7 @@ public class ResultadoFinal extends JFrame {
 	private JPanel contentPane;
 
 	public ResultadoFinal() {
-		super("Resultado Final");
+		super("Resultado");
 		setSize(800,600);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -88,38 +88,10 @@ public class ResultadoFinal extends JFrame {
 	}
 	private void escudos() {
 		if(golesLocal>golesVisitante) {
-			if(eqLocal.getNombre().equalsIgnoreCase("Real Madrid")) {
-				escudoganador.setIcon(new ImageIcon("resources/escudos/realmadridCampeon.png"));
-			}
-			else if(eqLocal.getNombre().equalsIgnoreCase("FC Barcelona")) {
-				escudoganador.setIcon(new ImageIcon("resources/escudos/barcelonaCampeon.png"));
-			}
-			else if(eqLocal.getNombre().equalsIgnoreCase("Cadiz CF")) {
-				escudoganador.setIcon(new ImageIcon("resources/escudos/cadizCampeon.png"));
-			}
-			else if(eqLocal.getNombre().equalsIgnoreCase("Sevilla FC")) {
-				escudoganador.setIcon(new ImageIcon("resources/escudos/sevillaCampeon.png"));
-			}
-			else if(eqLocal.getNombre().equalsIgnoreCase("Atletico de Madrid")) {
-				escudoganador.setIcon(new ImageIcon("resources/escudos/atleticoCampeon.png"));
-			}
+			escudoganador.setIcon(new ImageIcon(eqLocal.getFoto()));
 		}
 		else if(golesLocal<golesVisitante) {
-			if(eqVisitante.getNombre().equalsIgnoreCase("Real Madrid")) {
-				escudoganador.setIcon(new ImageIcon("resources/escudos/realmadridCampeon.png"));
-			}
-			else if(eqVisitante.getNombre().equalsIgnoreCase("FC Barcelona")) {
-				escudoganador.setIcon(new ImageIcon("resources/escudos/barcelonaCampeon.png"));
-			}
-			else if(eqVisitante.getNombre().equalsIgnoreCase("Cadiz CF")) {
-				escudoganador.setIcon(new ImageIcon("resources/escudos/cadizCampeon.png"));
-			}
-			else if(eqVisitante.getNombre().equalsIgnoreCase("Sevilla FC")) {
-				escudoganador.setIcon(new ImageIcon("resources/escudos/sevillaCampeon.png"));
-			}
-			else if(eqVisitante.getNombre().equalsIgnoreCase("Atletico de Madrid")) {
-				escudoganador.setIcon(new ImageIcon("resources/escudos/atleticoCampeon.png"));
-			}
+			escudoganador.setIcon(new ImageIcon(eqVisitante.getFoto()));
 		}
 	}
 }

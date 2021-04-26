@@ -38,3 +38,45 @@ Real Madrid;FC Barcelona;1;0
 Atletico de Madrid;FC Barcelona;1;2
 FC Barcelona;Cadiz CF;1;0
 FC Barcelona;FC Barcelona;6;5
+Real Madrid;FC Barcelona;3;2
+Real Madrid;Sevilla FC;0;1
+Atletico de Madrid;Sevilla FC;0;1
+Atletico de Madrid;FC Barcelona;2;1
+Cadiz CF;FC Barcelona;2;3
+Sevilla FC;Cadiz CF;4;3
+Atletico de Madrid;Sevilla FC;1;0
+FC Barcelona;Cadiz CF;1;2
+Real Madrid;Sevilla FC;1;0
+Sevilla FC;Real Madrid;0;1
+Cadiz CF;Atletico de Madrid;2;1
+Real Madrid;Cadiz CF;2;1
+Real Madrid;FC Barcelona;1;2
+Real Madrid;Sevilla FC;1;0
+Real Madrid;FC Barcelona;0;1
+Real Madrid;Cadiz CF;0;2
+Real Madrid;Sevilla FC;1;2
+Real Madrid;Sevilla FC;2;1
+Cadiz CF;Sevilla FC;0;1
+Sevilla FC;FC Barcelona;1;2
+Atletico de Madrid;Real Madrid;2;1
+FC Barcelona;Atletico de Madrid;1;2
+Real Madrid;Sevilla FC;0;2
+FC Barcelona;Real Madrid;3;2
+Atletico de Madrid;Sevilla FC;2;3
+Real Madrid;FC Barcelona;2;1
+FC Barcelona;Cadiz CF;1;2
+Atletico de Madrid;Sevilla FC;0;2
+Real Madrid;Atletico de Madrid;1;2
+FC Barcelona;Real Madrid;2;1
+Atletico de Madrid;Sevilla FC;2;1
+Sevilla FC;Real Madrid;1;2
+Cadiz CF;Sevilla FC;0;1
+Atletico de Madrid;Cadiz CF;1;2
+Sevilla FC;Real Madrid;1;0
+Sevilla FC;Cadiz CF;3;1
+Atletico de Madrid;Cadiz CF;3;4
+Cadiz CF;Real Madrid;3;1
+Cadiz CF;Real Madrid;0;1
+Atletico de Madrid;Cadiz CF;1;2
+Atletico de Madrid;Real Madrid;1;0
+Real Madrid;FC Barcelona;1;2

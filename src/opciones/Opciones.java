@@ -35,7 +35,7 @@ public class Opciones extends JFrame {
 	public static String nombreLocal;
 	public static int numLanzamientos;
 	private JLabel lanzamientos;
-
+	public static String [] equipos= {"Real Madrid","FC Barcelona","Atletico de Madrid","Sevilla FC","Cadiz CF"};
 	/**
 	 * Launch the application.
 	 */
@@ -57,7 +57,7 @@ public class Opciones extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		nombreLocal="Real Madrid";
-		String [] equipos= {"Real Madrid","FC Barcelona","Atletico de Madrid","Sevilla FC","Cadiz CF"};
+		
 		seleccionLocal = new JComboBox(equipos);
 		seleccionLocal.setSelectedItem("Real Madrid");
 		seleccionLocal.setBounds(230, 40, 180, 40);
