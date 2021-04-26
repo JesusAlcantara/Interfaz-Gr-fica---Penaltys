@@ -413,18 +413,18 @@ public class Jugar extends JFrame {
 
 	public void AtleticoDeMadrid() throws FileNotFoundException, IOException {
 		ArrayList<Componente> plantillaAtleticoDeMadrid = new ArrayList<>();
-		Jugador j1 = new Jugador("Oblack","resources/plantilla/realmadrid/courtois.png","", 1, 40);
-		Jugador j2 = new Jugador("Trippier","resources/plantilla/realmadrid/courtois.png","", 2, 60);
-		Jugador j3 = new Jugador("Gimenez","resources/plantilla/realmadrid/courtois.png","", 3, 70);
-		Jugador j4 = new Jugador("Savic","resources/plantilla/realmadrid/courtois.png","", 4, 70);
-		Jugador j5 = new Jugador("Lodi","resources/plantilla/realmadrid/courtois.png","", 5, 60);
-		Jugador j6 = new Jugador("Koke","resources/plantilla/realmadrid/courtois.png","", 6, 80);
-		Jugador j7 = new Jugador("Joao Felix","resources/plantilla/realmadrid/courtois.png","", 7, 90);
-		Jugador j8 = new Jugador("Marcos Llorente","resources/plantilla/realmadrid/courtois.png","", 8, 80);
-		Jugador j9 = new Jugador("Luis Suarez","resources/plantilla/realmadrid/courtois.png","", 9, 90);
-		Jugador j10 = new Jugador("Lemar","resources/plantilla/realmadrid/courtois.png","", 10, 90);
-		Jugador j11 = new Jugador("Yannick Carrasco","resources/plantilla/realmadrid/courtois.png","", 11, 90);
-		Entrenador e1 = new Entrenador("Simeone","resources/plantilla/realmadrid/courtois.png", 45);
+		Jugador j1 = new Jugador("Oblak","resources/plantilla/Atletico Madrid/oblak.png","", 1, 40);
+		Jugador j2 = new Jugador("Trippier","resources/plantilla/Atletico Madrid/trippier.png","", 2, 60);
+		Jugador j3 = new Jugador("Gimenez","resources/plantilla/Atletico Madrid/gimenez.png","", 3, 70);
+		Jugador j4 = new Jugador("Savic","resources/plantilla/Atletico Madrid/savic.png","", 4, 70);
+		Jugador j5 = new Jugador("Lodi","resources/plantilla/Atletico Madrid/lodi.png","", 5, 60);
+		Jugador j6 = new Jugador("Koke","resources/plantilla/Atletico Madrid/koke.png","", 6, 80);
+		Jugador j7 = new Jugador("Joao Felix","resources/plantilla/Atletico Madrid/joao.png","", 7, 90);
+		Jugador j8 = new Jugador("Marcos Llorente","resources/plantilla/Atletico Madrid/llorente.png","", 8, 80);
+		Jugador j9 = new Jugador("Luis Suarez","resources/plantilla/Atletico Madrid/suarez.png","", 9, 90);
+		Jugador j10 = new Jugador("Lemar","resources/plantilla/Atletico Madrid/lemar.png","", 10, 90);
+		Jugador j11 = new Jugador("Yannick Carrasco","resources/plantilla/Atletico Madrid/carrasco.png","", 11, 90);
+		Entrenador e1 = new Entrenador("Simeone","resources/plantilla/Atletico Madrid/simeone.png", 45);
 		plantillaAtleticoDeMadrid.add(j1);
 		plantillaAtleticoDeMadrid.add(j2);
 		plantillaAtleticoDeMadrid.add(j3);
@@ -437,7 +437,7 @@ public class Jugar extends JFrame {
 		plantillaAtleticoDeMadrid.add(j10);
 		plantillaAtleticoDeMadrid.add(j11);
 		plantillaAtleticoDeMadrid.add(e1);
-		Equipo eq1 = new Equipo("Atletico de Madrid","resources/plantilla/realmadrid/courtois.png", "Madrid", "Wanda Metropolitano", plantillaAtleticoDeMadrid);
+		Equipo eq1 = new Equipo("Atletico de Madrid","resources/escudos/atleticoJugar.png", "Madrid", "Wanda Metropolitano", plantillaAtleticoDeMadrid);
 		serializar(eq1,"Atletico de Madrid");
 	}
 
