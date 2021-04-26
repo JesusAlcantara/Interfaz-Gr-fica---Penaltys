@@ -37,3 +37,4 @@ Real Madrid;Atletico de Madrid;1;2
 Real Madrid;FC Barcelona;1;0
 Atletico de Madrid;FC Barcelona;1;2
 FC Barcelona;Cadiz CF;1;0
+FC Barcelona;FC Barcelona;6;5
