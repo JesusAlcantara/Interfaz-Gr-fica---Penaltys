@@ -80,3 +80,5 @@ Cadiz CF;Real Madrid;0;1
 Atletico de Madrid;Cadiz CF;1;2
 Atletico de Madrid;Real Madrid;1;0
 Real Madrid;FC Barcelona;1;2
+Real Madrid;FC Barcelona;1;3
+Cadiz CF;Sevilla FC;1;2
