@@ -32,6 +32,7 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 
 import javax.swing.ListSelectionModel;
+import javax.swing.DefaultListModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -71,7 +72,8 @@ public class Jugar extends JFrame {
 	Icon palo=new ImageIcon("resources/imagenesLanzamiento/palo.png");
 	Icon parada=new ImageIcon("resources/imagenesLanzamiento/parada.png");
 	//String [] equipos= {"Real Madrid","FC Barcelona","Atletico de Madrid","Sevilla FC","Cadiz CF"};
-	
+	private DefaultListModel<String> modeloPlantillaLocal; 
+	private DefaultListModel<String> modeloPlantillaVisitante; 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Jugar() {
 		super("Jugar");
@@ -127,8 +129,8 @@ public class Jugar extends JFrame {
 		lblNewLabel_4.setBounds(50, 260, 210, 40);
 		contentPane.add(lblNewLabel_4);
 
-		String[] nombrePL=mostrarLocal();
-		plantillaLocalList = new JList(nombrePL);
+		mostrarLocal();
+		plantillaLocalList = new JList(modeloPlantillaLocal);
 		plantillaLocalList.setBounds(50, 301, 210, 201);
 		plantillaLocalList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		plantillaLocalList.addListSelectionListener(new ListSelectionListener() {
@@ -157,8 +159,8 @@ public class Jugar extends JFrame {
 		lblNewLabel_4_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel_4_2.setBounds(540, 260, 210, 40);
 		contentPane.add(lblNewLabel_4_2);
-		nombrePV=mostrarVisitante();
-		plantillaVisitanteList = new JList(nombrePV);
+		mostrarVisitante();
+		plantillaVisitanteList = new JList(modeloPlantillaVisitante);
 		plantillaVisitanteList.setBounds(540, 301, 210, 201);
 		contentPane.add(plantillaVisitanteList);
 		
@@ -177,7 +179,7 @@ public class Jugar extends JFrame {
 		lanzamientosLBL = new JLabel("Nº de Penaltis: "+contador+"-"+numLanzamientos);
 		lanzamientosLBL.setHorizontalAlignment(SwingConstants.CENTER);
 		lanzamientosLBL.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lanzamientosLBL.setBounds(300, 47, 195, 27);
+		lanzamientosLBL.setBounds(270, 47, 260, 27);
 		contentPane.add(lanzamientosLBL);
 		
 		resultadoLBL = new JLabel("RESULTADO: 0-0");
@@ -191,6 +193,19 @@ public class Jugar extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			try {
 			if(e.getSource()==lanzarBTN) {
+				if(plantillaVisitante.size()<=2) {
+					escribirOLeer(nombreLocal);
+					eqLocal=equipo;
+					plantillaLocal=eqLocal.getPlantilla();
+					cargarVisitante();
+					escribirOLeer(nombreVisitante);
+					eqVisitante=equipo;
+					plantillaVisitante=eqVisitante.getPlantilla();
+					mostrarLocal();
+					plantillaLocalList.setModel(modeloPlantillaLocal);
+					mostrarVisitante();
+					plantillaVisitanteList.setModel(modeloPlantillaVisitante);
+				}
 				if (contador!=numLanzamientos) {
 				int lanzamiento=lanzamiento(buscarJugador(dorsalLanzador));
 				if(lanzamiento==1) {
@@ -204,12 +219,11 @@ public class Jugar extends JFrame {
 					JOptionPane.showMessageDialog(Jugar.this, "Paradon del portero!!","Parada",JOptionPane.INFORMATION_MESSAGE,parada);
 				}
 				plantillaLocal.remove(buscarJugador(dorsalLanzador));
-				nombrePL=mostrarLocal();
-				plantillaLocalList.removeAll();
-				plantillaLocalList.setListData(nombrePL);
+				mostrarLocal();
+				plantillaLocalList.setModel(modeloPlantillaLocal);
 				int lanzador2;
 				do{
-					lanzador2=(int)(Math.random()*11+1);
+					lanzador2=(int)(Math.random()*98+1);
 					
 				}while(buscarJugadorV(lanzador2)==null);
 				lanzamiento=lanzamiento(buscarJugadorV(lanzador2));
@@ -224,9 +238,8 @@ public class Jugar extends JFrame {
 					JOptionPane.showMessageDialog(Jugar.this, "Paradon del portero!!","Parada",JOptionPane.INFORMATION_MESSAGE,parada);
 				}
 				plantillaVisitante.remove(buscarJugadorV(lanzador2));
-				nombrePV=mostrarVisitante();
-				plantillaVisitanteList.removeAll();
-				plantillaVisitanteList.setListData(nombrePV);
+				mostrarVisitante();
+				plantillaVisitanteList.setModel(modeloPlantillaVisitante);
 				contador++;
 				lanzamientosLBL.setText("Nº DE PENALTIS: "+contador+"-"+numLanzamientos);
 				resultadoLBL.setText("RESULTADO: "+golesLocal+"-"+golesVisitante);
@@ -253,17 +266,6 @@ public class Jugar extends JFrame {
 						}
 					}
 					else if(golesLocal==golesVisitante) {
-						if(plantillaLocal.size()==1) {
-							plantillaLocal=eqLocal.getPlantilla();
-							plantillaVisitante=eqVisitante.getPlantilla();
-							nombrePL=mostrarLocal();
-							plantillaLocalList.removeAll();
-							plantillaLocalList.setListData(nombrePL);
-							nombrePV=mostrarVisitante();
-							plantillaVisitanteList.removeAll();
-							plantillaVisitanteList.setListData(nombrePV);
-						}
-						else {
 							int lanzamiento=lanzamiento(buscarJugador(dorsalLanzador));
 							if(lanzamiento==1) {
 								golesLocal++;
@@ -276,12 +278,11 @@ public class Jugar extends JFrame {
 								JOptionPane.showMessageDialog(Jugar.this, "Paradon del portero!!","Parada",JOptionPane.INFORMATION_MESSAGE,parada);
 							}
 							plantillaLocal.remove(buscarJugador(dorsalLanzador));
-							nombrePL=mostrarLocal();
-							plantillaLocalList.removeAll();
-							plantillaLocalList.setListData(nombrePL);
+							mostrarLocal();
+							plantillaLocalList.setModel(modeloPlantillaLocal);
 							int lanzador2;
 							do{
-								lanzador2=(int)(Math.random()*11+1);
+								lanzador2=(int)(Math.random()*98+1);
 								
 							}while(buscarJugadorV(lanzador2)==null);
 							lanzamiento=lanzamiento(buscarJugadorV(lanzador2));
@@ -296,11 +297,10 @@ public class Jugar extends JFrame {
 								JOptionPane.showMessageDialog(Jugar.this, "Paradon del portero!!","Parada",JOptionPane.INFORMATION_MESSAGE,parada);
 							}
 							plantillaVisitante.remove(buscarJugadorV(lanzador2));
-							nombrePV=mostrarVisitante();
-							plantillaVisitanteList.removeAll();
-							plantillaVisitanteList.setListData(nombrePV);
+							mostrarVisitante();
+							plantillaVisitanteList.setModel(modeloPlantillaVisitante);
 							resultadoLBL.setText("RESULTADO: "+golesLocal+"-"+golesVisitante);
-						}
+						
 					}
 				}
 				
@@ -608,30 +608,27 @@ public class Jugar extends JFrame {
 
 	}
 
-	public String[] mostrarLocal() {
-		String[] jugadoress = new String[plantillaLocal.size()-1];
-		int i = 0;
-		for (Componente c : plantillaLocal) {
+	public void mostrarLocal() {	
+		modeloPlantillaLocal = new DefaultListModel<String>();
+        modeloPlantillaLocal.removeAllElements();
+        for (Componente c : plantillaLocal) {
 			if (c instanceof Jugador) {
-				jugadoress[i++] = ((Jugador) c).getDorsal()+" - "+c.getNombre()+" P: "+((Jugador)c).getPrecision();
+				modeloPlantillaLocal.addElement(((Jugador) c).getDorsal()+" - "+c.getNombre()+" P: "+((Jugador)c).getPrecision());
 			} else if (c instanceof Entrenador) {
 				entrenadorLtxt=c.getNombre();
 			}
 		}
-		
-		return jugadoress;
 	}
-	public String[] mostrarVisitante() {
-		String []jugadores=new String[plantillaVisitante.size()];
-		int i = 0;
-		for (Componente c : plantillaVisitante) {
+	public void mostrarVisitante() {
+		modeloPlantillaVisitante = new DefaultListModel<String>();
+        modeloPlantillaVisitante.removeAllElements();
+        for (Componente c : plantillaVisitante) {
 			if (c instanceof Jugador) {
-				jugadores[i++] = ((Jugador) c).getDorsal()+" - "+c.getNombre()+" P: "+((Jugador)c).getPrecision();
+				modeloPlantillaVisitante.addElement(((Jugador) c).getDorsal()+" - "+c.getNombre()+" P: "+((Jugador)c).getPrecision());
 			} else if (c instanceof Entrenador) {
 				entrenadorVtxt=c.getNombre();
 			}
 		}
-		return jugadores;
 	}
 	
 }
