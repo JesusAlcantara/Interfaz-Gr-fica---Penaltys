@@ -1,7 +1,5 @@
 package opciones;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,26 +9,23 @@ import javax.swing.border.EmptyBorder;
 
 import jugar.Jugar;
 
-import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
-import java.awt.event.ContainerAdapter;
-import java.awt.event.ContainerEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-import javax.swing.AbstractAction;
-import javax.swing.Action;
 import javax.swing.JComboBox;
 import java.awt.Font;
 
+@SuppressWarnings("serial")
 public class Opciones extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField numLanzamientostxt;
 	private JButton btnNewButton;
+	@SuppressWarnings("rawtypes")
 	private JComboBox seleccionLocal;
 	public static String nombreLocal;
 	public static int numLanzamientos;
@@ -40,12 +35,14 @@ public class Opciones extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		@SuppressWarnings("unused")
 		Opciones o=new Opciones();
 	}
 
 	/**
 	 * Create the frame.
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Opciones() {
 		super("Opciones");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -106,11 +103,6 @@ public class Opciones extends JFrame {
 			catch(NumberFormatException ex) {
 				JOptionPane.showMessageDialog(Opciones.this, "Introduzca un valor númerico entero","Error",JOptionPane.ERROR_MESSAGE);
 			}
-			
-			//setVisible(false);
-	
-			
-			
 			
 		}
 		

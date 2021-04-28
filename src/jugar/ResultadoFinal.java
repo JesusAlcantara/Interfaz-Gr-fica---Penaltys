@@ -1,8 +1,5 @@
 package jugar;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -11,18 +8,16 @@ import clasesprincipales.Equipo;
 import opciones.Opciones;
 
 
-import java.awt.FlowLayout;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.SystemColor;
 import javax.swing.SwingConstants;
 
+@SuppressWarnings("serial")
 public class ResultadoFinal extends JFrame {
 	private int golesLocal;
 	private int golesVisitante;
@@ -35,7 +30,7 @@ public class ResultadoFinal extends JFrame {
 
 	public ResultadoFinal() {
 		super("Resultado");
-		setSize(800,600);
+		setSize(700,550);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		contentPane = new JPanel();
@@ -50,22 +45,22 @@ public class ResultadoFinal extends JFrame {
 		golesLocal=Jugar.golesLocal;
 		golesVisitante=Jugar.golesVisitante;
 		
-		JLabel lblNewLabel = new JLabel(nombreLocal+" "+golesLocal+ " - " +golesVisitante+" "+nombreVisitante);
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblNewLabel.setBounds(10, 25, 764, 60);
-		contentPane.add(lblNewLabel);
+		JLabel marcadorlbl = new JLabel(nombreLocal+" "+golesLocal+ " - " +golesVisitante+" "+nombreVisitante);
+		marcadorlbl.setHorizontalAlignment(SwingConstants.CENTER);
+		marcadorlbl.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		marcadorlbl.setBounds(10, 25, 676, 60);
+		contentPane.add(marcadorlbl);
 		
 		JLabel lblNewLabel_1 = new JLabel("GANADOR");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 37));
-		lblNewLabel_1.setBounds(10, 96, 764, 60);
+		lblNewLabel_1.setBounds(10, 96, 676, 60);
 		contentPane.add(lblNewLabel_1);
 		
 		JButton btnNewButton = new JButton("INICIO");
 		btnNewButton.setBackground(SystemColor.activeCaption);
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton.setBounds(316, 496, 170, 54);
+		btnNewButton.setBounds(261, 449, 170, 54);
 		btnNewButton.addActionListener(new ActionListener() {
 
 			@Override
@@ -82,7 +77,7 @@ public class ResultadoFinal extends JFrame {
 		escudoganador = new JLabel();
 		escudoganador.setHorizontalAlignment(SwingConstants.CENTER);
 		escudos();
-		escudoganador.setBounds(10, 170, 764, 300);
+		escudoganador.setBounds(10, 170, 676, 260);
 		contentPane.add(escudoganador);
 		
 	}
