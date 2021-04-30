@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.SystemColor;
 import javax.swing.SwingConstants;
+import java.awt.Toolkit;
 
 @SuppressWarnings("serial")
 public class ResultadoFinal extends JFrame {
@@ -30,6 +31,7 @@ public class ResultadoFinal extends JFrame {
 
 	public ResultadoFinal() {
 		super("Resultado");
+		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/icono/icono.png"));
 		setSize(700,550);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,15 +47,9 @@ public class ResultadoFinal extends JFrame {
 		golesLocal=Jugar.golesLocal;
 		golesVisitante=Jugar.golesVisitante;
 		
-		JLabel marcadorlbl = new JLabel(nombreLocal+" "+golesLocal+ " - " +golesVisitante+" "+nombreVisitante);
-		marcadorlbl.setHorizontalAlignment(SwingConstants.CENTER);
-		marcadorlbl.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		marcadorlbl.setBounds(10, 25, 676, 60);
-		contentPane.add(marcadorlbl);
-		
 		JLabel lblNewLabel_1 = new JLabel("GANADOR");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 37));
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 37));
 		lblNewLabel_1.setBounds(10, 96, 676, 60);
 		contentPane.add(lblNewLabel_1);
 		
@@ -79,6 +75,24 @@ public class ResultadoFinal extends JFrame {
 		escudos();
 		escudoganador.setBounds(10, 170, 676, 260);
 		contentPane.add(escudoganador);
+		
+		JLabel localLBL = new JLabel(nombreLocal);
+		localLBL.setHorizontalAlignment(SwingConstants.CENTER);
+		localLBL.setFont(new Font("Tahoma", Font.BOLD, 25));
+		localLBL.setBounds(10, 10, 280, 49);
+		contentPane.add(localLBL);
+		
+		JLabel resultadoLBL = new JLabel(golesLocal+"-"+golesVisitante);
+		resultadoLBL.setHorizontalAlignment(SwingConstants.CENTER);
+		resultadoLBL.setFont(new Font("Tahoma", Font.BOLD, 25));
+		resultadoLBL.setBounds(300, 10, 100, 49);
+		contentPane.add(resultadoLBL);
+		
+		JLabel visitanteLBL = new JLabel(nombreVisitante);
+		visitanteLBL.setHorizontalAlignment(SwingConstants.CENTER);
+		visitanteLBL.setFont(new Font("Tahoma", Font.BOLD, 25));
+		visitanteLBL.setBounds(410, 10, 266, 49);
+		contentPane.add(visitanteLBL);
 		
 	}
 	private void escudos() {

@@ -18,6 +18,7 @@ import java.awt.event.ItemListener;
 
 import javax.swing.JComboBox;
 import java.awt.Font;
+import java.awt.Toolkit;
 
 @SuppressWarnings("serial")
 public class Opciones extends JFrame {
@@ -45,6 +46,7 @@ public class Opciones extends JFrame {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Opciones() {
 		super("Opciones");
+		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/icono/icono.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//setBounds(100, 100, 550, 400);
 		setSize(440,310);

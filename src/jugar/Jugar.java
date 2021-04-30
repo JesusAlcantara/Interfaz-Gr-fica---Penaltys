@@ -39,6 +39,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.Color;
+import java.awt.Toolkit;
 
 @SuppressWarnings("serial")
 public class Jugar extends JFrame {
@@ -78,6 +79,7 @@ public class Jugar extends JFrame {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Jugar() {
 		super("Jugar");
+		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/icono/icono.png"));
 		setSize(800,600);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -178,7 +180,7 @@ public class Jugar extends JFrame {
 		lanzarBTN.addActionListener(new botones());
 		contentPane.add(lanzarBTN);
 		
-		lanzamientosLBL = new JLabel("Nº de Penaltis: "+contador+"-"+numLanzamientos);
+		lanzamientosLBL = new JLabel("Nº DE PENALTIS: "+contador+"-"+numLanzamientos);
 		lanzamientosLBL.setHorizontalAlignment(SwingConstants.CENTER);
 		lanzamientosLBL.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lanzamientosLBL.setBounds(270, 47, 260, 27);
