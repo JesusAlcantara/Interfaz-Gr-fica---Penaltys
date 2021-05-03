@@ -3,6 +3,7 @@ package clasesprincipales;
 import java.io.Serializable;
 
 public class Entrenador extends Componente implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private int edad;
 
 	public Entrenador(String nombre, String foto, int edad) {
