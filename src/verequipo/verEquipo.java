@@ -28,22 +28,15 @@ public class verEquipo extends JFrame {
 
 	private JPanel contentPane;
 	JTextField textNombre, textPosicion, textDorsal, textPrecision;
-	private JPanel panel, panel_1;
+	private JPanel panel, panel_1, panel_2, panel_3;
 	private JLabel lblNombre, lblPosicion, lblDorsal, lblPrecision;
-	private JButton btnModificar;
-	private JButton btnFirst;
-	private JButton btnNext;
-	private JButton btnPrev;
-	private JPanel panel_2;
+	private JButton btnModificar, btnFirst, btnNext, btnPrev;
 	JLabel lblImagen;
-	private JButton btnImage;
-	private JButton btnLast;
-	private JPanel panel_3;
-	private JButton btnEntrenador;
-	private JButton btnResultados;
-	private JButton btnInicio;
-	private JLabel lblEstadio;
-	private JLabel lblEscudo;
+	private JButton btnImage, btnLast;
+	private JButton btnEntrenador, btnResultados, btnInicio;
+	private JLabel lblEstadio, lblEscudo;
+	private Image inicio;
+	private ImageIcon inicioModificado;
 
 	public verEquipo() {
 		super("Ver Equipo");
@@ -283,7 +276,9 @@ public class verEquipo extends JFrame {
 		btnResultados = new JButton("Resultados");
 		panel_3.add(btnResultados);
 
-		btnInicio = new JButton("Inicio");
+		inicio = new ImageIcon("resources/plantilla/casaInicio.png").getImage();
+		inicioModificado = new ImageIcon(inicio.getScaledInstance(15, 15, inicio.SCALE_SMOOTH));
+		btnInicio = new JButton("Inicio", inicioModificado);
 		btnInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
 				verEquipo.this.setVisible(false);
