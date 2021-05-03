@@ -100,3 +100,5 @@ Atletico de Madrid;FC Barcelona;0;2
 Sevilla FC;Real Madrid;2;1
 Cadiz CF;Atletico de Madrid;2;1
 Atletico de Madrid;Cadiz CF;1;3
+FC Barcelona;Atletico de Madrid;0;1
+Atletico de Madrid;Real Madrid;1;3

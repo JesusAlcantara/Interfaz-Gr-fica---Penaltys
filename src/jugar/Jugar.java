@@ -47,7 +47,7 @@ public class Jugar extends JFrame {
 	public static Equipo eqVisitante;
 	public static ArrayList<Componente> plantillaLocal = new ArrayList<>();
 	public static ArrayList<Componente> plantillaVisitante = new ArrayList<>();
-	private Equipo equipo;
+	private static Equipo equipo;
 	private String nombreLocal;
 	private String nombreVisitante;
 	private int numLanzamientos;
@@ -333,7 +333,7 @@ public class Jugar extends JFrame {
 		this.numLanzamientos = numLanzamientos;
 	}
 
-	public void RealMadrid() throws FileNotFoundException, IOException {
+	public static void RealMadrid() throws FileNotFoundException, IOException {
 		ArrayList<Componente> plantillaRealMadrid = new ArrayList<>();
 		Jugador j1 = new Jugador("Thibaut Courtois","resources/plantilla/Real Madrid/courtois.png","Portero", 1, 40);
 		Jugador j2 = new Jugador("Dani Carvajal","resources/plantilla/Real Madrid/carvajal.png","Defensa", 2, 70);
@@ -363,7 +363,7 @@ public class Jugar extends JFrame {
 		serializar(eq1,"Real Madrid");
 	}
 
-	public void Barcelona() throws FileNotFoundException, IOException {
+	public static void Barcelona() throws FileNotFoundException, IOException {
 		ArrayList<Componente> plantillaBarcelona = new ArrayList<>();
 		Jugador j1 = new Jugador("ter Stegen","resources/plantilla/Barcelona/stegen.png","Portero", 1, 40);
 		Jugador j2 = new Jugador("Dest","resources/plantilla/Barcelona/dest.png","Defensa", 2, 60);
@@ -393,7 +393,7 @@ public class Jugar extends JFrame {
 		serializar(eq1,"FC Barcelona");
 	}
 
-	public void Cadiz() throws FileNotFoundException, IOException {
+	public static void Cadiz() throws FileNotFoundException, IOException {
 		ArrayList<Componente> plantillaCadiz = new ArrayList<>();
 		Jugador j1 = new Jugador("Jeremías Ledesma","resources/plantilla/Cadiz/ledesma.png","Portero", 1, 40);
 		Jugador j2 = new Jugador("Isaac Carcelén","resources/plantilla/Cadiz/iza.png","Defensa", 20, 60);
@@ -423,7 +423,7 @@ public class Jugar extends JFrame {
 		serializar(eq1,"Cadiz CF");
 	}
 
-	public void AtleticoDeMadrid() throws FileNotFoundException, IOException {
+	public static void AtleticoDeMadrid() throws FileNotFoundException, IOException {
 		ArrayList<Componente> plantillaAtleticoDeMadrid = new ArrayList<>();
 		Jugador j1 = new Jugador("Oblak","resources/plantilla/Atletico Madrid/oblak.png","Portero", 13, 40);
 		Jugador j2 = new Jugador("Trippier","resources/plantilla/Atletico Madrid/trippier.png","Defensa", 23, 60);
@@ -453,7 +453,7 @@ public class Jugar extends JFrame {
 		serializar(eq1,"Atletico de Madrid");
 	}
 
-	public void Sevilla() throws FileNotFoundException, IOException {
+	public static void Sevilla() throws FileNotFoundException, IOException {
 		ArrayList<Componente> plantillaSevilla = new ArrayList<>();
 		Jugador j1 = new Jugador("Bono","resources/plantilla/Sevilla/bono.png","Portero", 13, 40);
 		Jugador j2 = new Jugador("Jesus Navas","resources/plantilla/Sevilla/navas.png","Defensa", 16, 80);
@@ -483,7 +483,7 @@ public class Jugar extends JFrame {
 		serializar(eq1,"Sevilla FC");
 	}
 
-	private void escribirOLeer(String nombre) {
+	public static void escribirOLeer(String nombre) {
 		File f = new File("resources/"+nombre);
 		if (f.exists() && f.isFile()) {
 			try {
@@ -525,13 +525,13 @@ public class Jugar extends JFrame {
 		}
 	}
 
-	private void serializar(Equipo eq,String nombre) throws FileNotFoundException, IOException {
+	public static void serializar(Equipo eq,String nombre) throws FileNotFoundException, IOException {
 		ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("resources/"+nombre));
 		os.writeObject(eq);
 		os.close();
 	}
 
-	private Equipo deserializar(File nombre) throws FileNotFoundException, IOException, ClassNotFoundException {
+	public static Equipo deserializar(File nombre) throws FileNotFoundException, IOException, ClassNotFoundException {
 		@SuppressWarnings("resource")
 		ObjectInputStream is = new ObjectInputStream(new FileInputStream(nombre));
 		return (Equipo) is.readObject();
