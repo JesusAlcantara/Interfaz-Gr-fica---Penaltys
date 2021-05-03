@@ -42,7 +42,6 @@ public class verEquipo extends JFrame {
 		super("Ver Equipo");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/icono/icono.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setIconImage(null);
 		setBounds(100, 100, 450, 300);
 		setSize(650, 350);
 		setLocationRelativeTo(null);
