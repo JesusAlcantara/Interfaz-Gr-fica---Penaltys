@@ -1,5 +1,7 @@
 package verequipo;
 
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -29,23 +31,27 @@ public class plantillaEquipo extends JFrame {
 	static String[][] jugadoresGlobal = new String[11][4];
 	static String[] fotos = new String[11];
 	static int contadorGlobal = 0;
+	Image ojeador = new ImageIcon("resources/plantilla/ojeador.jpg").getImage();
+	ImageIcon ojeadorModificado = new ImageIcon(ojeador.getScaledInstance(150, 150, ojeador.SCALE_SMOOTH));
 
 	public static void main(String[] args) {
-		plantillaEquipo ver=new plantillaEquipo();
+		plantillaEquipo ver = new plantillaEquipo();
 	}
-	
+
 	public plantillaEquipo() {
 		super("Ver Equipo");
-		JOptionPane.showMessageDialog(plantillaEquipo.this, "Elija el equipo que dese ver.", "Plantilla", JOptionPane.INFORMATION_MESSAGE);
+		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/icono/icono.png"));
+		JOptionPane.showMessageDialog(plantillaEquipo.this, "Elija el equipo que dese ver.", "Plantilla",
+				JOptionPane.PLAIN_MESSAGE, ojeadorModificado);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		setSize(1250,500);
+		setSize(1250, 500);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.X_AXIS));
-		
+
 		iconMadrid = new ImageIcon("resources/escudos/realmadridJugar.png");
 		btnMadrid = new JButton();
 		btnMadrid.addActionListener(new ActionListener() {
@@ -82,7 +88,7 @@ public class plantillaEquipo extends JFrame {
 		});
 		btnMadrid.setIcon(iconMadrid);
 		contentPane.add(btnMadrid);
-		
+
 		iconBarcelona = new ImageIcon("resources/escudos/barcelonaJugar.png");
 		btnBarcelona = new JButton();
 		btnBarcelona.addActionListener(new ActionListener() {
@@ -119,7 +125,7 @@ public class plantillaEquipo extends JFrame {
 		});
 		btnBarcelona.setIcon(iconBarcelona);
 		contentPane.add(btnBarcelona);
-		
+
 		iconCadiz = new ImageIcon("resources/escudos/cadizJugar.png");
 		btnCadiz = new JButton();
 		btnCadiz.addActionListener(new ActionListener() {
@@ -156,7 +162,7 @@ public class plantillaEquipo extends JFrame {
 		});
 		btnCadiz.setIcon(iconCadiz);
 		contentPane.add(btnCadiz);
-		
+
 		iconSevilla = new ImageIcon("resources/escudos/sevillaJugar.png");
 		btnSevilla = new JButton();
 		btnSevilla.addActionListener(new ActionListener() {
@@ -193,7 +199,7 @@ public class plantillaEquipo extends JFrame {
 		});
 		btnSevilla.setIcon(iconSevilla);
 		contentPane.add(btnSevilla);
-		
+
 		iconAtletico = new ImageIcon("resources/escudos/atleticoJugar.png");
 		btnAtletico = new JButton();
 		btnAtletico.addActionListener(new ActionListener() {
@@ -231,7 +237,7 @@ public class plantillaEquipo extends JFrame {
 		btnAtletico.setIcon(iconAtletico);
 		contentPane.add(btnAtletico);
 		setVisible(true);
-	}	
+	}
 
 	private String[][] returnInformacion(String[] lineas) {
 		String[][] jugadores = new String[11][4];
@@ -243,21 +249,21 @@ public class plantillaEquipo extends JFrame {
 			caracterFinal = "";
 			for (int j = 0; j < lineas[i].length(); j++) {
 				caracter = String.valueOf(lineas[i].charAt(j));
-				if(caracter.equals(":"))
+				if (caracter.equals(":"))
 					dato = true;
-				else if(caracter.equals(",")) {
+				else if (caracter.equals(",")) {
 					dato = false;
 				}
-				if(dato && !(caracter.equals(":"))) {
+				if (dato && !(caracter.equals(":"))) {
 					caracterFinal += caracter;
 					jugadores[i][contador] = caracterFinal;
 				}
-				if(caracter.equals(",")) {
-					contador++;		
+				if (caracter.equals(",")) {
+					contador++;
 					caracterFinal = "";
 				}
-				
-			}	
+
+			}
 		}
 		return jugadores;
 	}

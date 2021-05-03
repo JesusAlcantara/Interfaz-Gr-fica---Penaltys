@@ -2,6 +2,7 @@ package verequipo;
 
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -41,10 +42,12 @@ public class verEquipo extends JFrame {
 	private JButton btnEntrenador;
 	private JButton btnResultados;
 	private JButton btnInicio;
-	
+
 	public verEquipo() {
 		super("Ver Equipo");
+		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/icono/icono.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setIconImage(null);
 		setBounds(100, 100, 450, 300);
 		setSize(650, 350);
 		setLocationRelativeTo(null);
@@ -52,38 +55,38 @@ public class verEquipo extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new GridLayout(2, 2));
-		
+
 		panel = new JPanel();
 		contentPane.add(panel);
-		
+
 		lblNombre = new JLabel("Nombre");
 		panel.add(lblNombre);
-		
+
 		textNombre = new JTextField("");
 		panel.add(textNombre);
 		textNombre.setColumns(20);
-		
+
 		lblPosicion = new JLabel("Posición");
 		panel.add(lblPosicion);
-		
+
 		textPosicion = new JTextField("");
 		panel.add(textPosicion);
 		textPosicion.setColumns(20);
-		
+
 		lblDorsal = new JLabel("Dorsal");
 		panel.add(lblDorsal);
-		
+
 		textDorsal = new JTextField("");
 		panel.add(textDorsal);
 		textDorsal.setColumns(20);
-		
+
 		lblPrecision = new JLabel("Precisión");
 		panel.add(lblPrecision);
-		
+
 		textPrecision = new JTextField("");
 		panel.add(textPrecision);
 		textPrecision.setColumns(20);
-		
+
 		btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
@@ -91,91 +94,102 @@ public class verEquipo extends JFrame {
 				int i = 0;
 				for (Componente c : plantilla) {
 					if (c instanceof Jugador) {
-						if(i == plantillaEquipo.contadorGlobal) {
-							//Nombre
-							if(comprobarString(textNombre.getText()) == false || isEmpty(textNombre.getText()) == false)
-								JOptionPane.showMessageDialog(verEquipo.this, "Nombre incorrecto.", "Error", JOptionPane.ERROR_MESSAGE);
+						if (i == plantillaEquipo.contadorGlobal) {
+							// Nombre
+							if (comprobarString(textNombre.getText()) == false
+									|| isEmpty(textNombre.getText()) == false)
+								JOptionPane.showMessageDialog(verEquipo.this, "Nombre incorrecto.", "Error",
+										JOptionPane.ERROR_MESSAGE);
 							else {
-								((Jugador)c).setNombre(textNombre.getText());
-								plantillaEquipo.jugadoresGlobal[plantillaEquipo.contadorGlobal][1] = textNombre.getText();
+								((Jugador) c).setNombre(textNombre.getText());
+								plantillaEquipo.jugadoresGlobal[plantillaEquipo.contadorGlobal][1] = textNombre
+										.getText();
 							}
-							
-							//Dorsal
+
+							// Dorsal
 							try {
-								((Jugador)c).setDorsal(Integer.parseInt(textDorsal.getText()));
-								plantillaEquipo.jugadoresGlobal[plantillaEquipo.contadorGlobal][0] = textDorsal.getText();
+								((Jugador) c).setDorsal(Integer.parseInt(textDorsal.getText()));
+								plantillaEquipo.jugadoresGlobal[plantillaEquipo.contadorGlobal][0] = textDorsal
+										.getText();
 							} catch (Exception e) {
-								JOptionPane.showMessageDialog(verEquipo.this, "Dorsal incorrecto.", "Error", JOptionPane.ERROR_MESSAGE);
+								JOptionPane.showMessageDialog(verEquipo.this, "Dorsal incorrecto.", "Error",
+										JOptionPane.ERROR_MESSAGE);
 							}
-							
-							//Posicion
-							if(comprobarString(textPosicion.getText()) == false || isEmpty(textPosicion.getText()) == false) 
-								JOptionPane.showMessageDialog(verEquipo.this, "Posición incorrecta.", "Error", JOptionPane.ERROR_MESSAGE);
+
+							// Posicion
+							if (comprobarString(textPosicion.getText()) == false
+									|| isEmpty(textPosicion.getText()) == false)
+								JOptionPane.showMessageDialog(verEquipo.this, "Posición incorrecta.", "Error",
+										JOptionPane.ERROR_MESSAGE);
 							else {
-								((Jugador)c).setPosicion(textPosicion.getText());
-								plantillaEquipo.jugadoresGlobal[plantillaEquipo.contadorGlobal][2] = textPosicion.getText();
+								((Jugador) c).setPosicion(textPosicion.getText());
+								plantillaEquipo.jugadoresGlobal[plantillaEquipo.contadorGlobal][2] = textPosicion
+										.getText();
 							}
-							
-							//Precision
+
+							// Precision
 							try {
-								((Jugador)c).setPrecision(Integer.parseInt(textPrecision.getText()));
-								plantillaEquipo.jugadoresGlobal[plantillaEquipo.contadorGlobal][3] = textPrecision.getText();
+								((Jugador) c).setPrecision(Integer.parseInt(textPrecision.getText()));
+								plantillaEquipo.jugadoresGlobal[plantillaEquipo.contadorGlobal][3] = textPrecision
+										.getText();
 							} catch (Exception e) {
-								JOptionPane.showMessageDialog(verEquipo.this, "Precisión incorrecta.", "Error", JOptionPane.ERROR_MESSAGE);
+								JOptionPane.showMessageDialog(verEquipo.this, "Precisión incorrecta.", "Error",
+										JOptionPane.ERROR_MESSAGE);
 							}
-								
-							
+
 						}
-					}		
+					}
 					i++;
 				}
-				Equipo eq1 = new Equipo(plantillaEquipo.equipo.getNombre(), plantillaEquipo.equipo.getCiudad(), 
+				Equipo eq1 = new Equipo(plantillaEquipo.equipo.getNombre(), plantillaEquipo.equipo.getCiudad(),
 						plantillaEquipo.equipo.getEstadio(), plantillaEquipo.equipo.getFoto(), plantilla);
 				try {
 					Jugar.serializar(eq1, plantillaEquipo.equipo.getNombre());
-					JOptionPane.showMessageDialog(verEquipo.this, "Datos modificados.", "Modificación", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(verEquipo.this, "Datos modificados.", "Modificación",
+							JOptionPane.PLAIN_MESSAGE);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			}	
+			}
 		});
 		panel.add(btnModificar);
-		
+
 		panel_2 = new JPanel();
 		contentPane.add(panel_2);
-		
+
 		lblImagen = new JLabel("");
 		panel_2.add(lblImagen);
-		
+
 		btnImage = new JButton("Select Image");
 		btnImage.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
 				ArrayList<Componente> plantilla = plantillaEquipo.equipo.getPlantilla();
-				
+
 				String rutaOriginal = plantilla.get(plantillaEquipo.contadorGlobal).getFoto();
 				String ruta = "";
 				JFileChooser fileChooser = new JFileChooser();
-				FileNameExtensionFilter filtrado = new FileNameExtensionFilter("JPG, PNG, JPEG & GIF", "jpg", "png", "jpeg", "gif");
+				FileNameExtensionFilter filtrado = new FileNameExtensionFilter("JPG, PNG, JPEG & GIF", "jpg", "png",
+						"jpeg", "gif");
 				fileChooser.setFileFilter(filtrado);
 				int respuesta = fileChooser.showOpenDialog(verEquipo.this);
-				if(respuesta == fileChooser.APPROVE_OPTION) {
+				if (respuesta == fileChooser.APPROVE_OPTION) {
 					ruta = fileChooser.getSelectedFile().getPath();
 					Image imagen = new ImageIcon(ruta).getImage();
 					ImageIcon icon = new ImageIcon(imagen.getScaledInstance(150, 150, imagen.SCALE_SMOOTH));
 					lblImagen.setIcon(icon);
 				}
-				
+
 				for (Componente c : plantilla) {
 					if (c instanceof Jugador) {
-						if(((Jugador) c).getFoto().equals(rutaOriginal)) {
-							((Jugador)c).setFoto(ruta);
+						if (((Jugador) c).getFoto().equals(rutaOriginal)) {
+							((Jugador) c).setFoto(ruta);
 							plantillaEquipo.fotos[plantillaEquipo.contadorGlobal] = ruta;
 						}
 					}
 				}
-				
-				Equipo eq1 = new Equipo(plantillaEquipo.equipo.getNombre(), plantillaEquipo.equipo.getCiudad(), 
+
+				Equipo eq1 = new Equipo(plantillaEquipo.equipo.getNombre(), plantillaEquipo.equipo.getCiudad(),
 						plantillaEquipo.equipo.getEstadio(), plantillaEquipo.equipo.getFoto(), plantilla);
 				try {
 					Jugar.serializar(eq1, plantillaEquipo.equipo.getNombre());
@@ -186,11 +200,11 @@ public class verEquipo extends JFrame {
 			}
 		});
 		panel_2.add(btnImage);
-		
+
 		panel_1 = new JPanel();
 		contentPane.add(panel_1);
-		
-		btnFirst = new JButton("First");
+
+		btnFirst = new JButton("<< First");
 		btnFirst.setEnabled(false);
 		btnFirst.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
@@ -199,49 +213,49 @@ public class verEquipo extends JFrame {
 				btnFirst.setEnabled(false);
 				btnLast.setEnabled(true);
 				plantillaEquipo.contadorGlobal = 0;
-				rellenarFormulario(plantillaEquipo.contadorGlobal);	
+				rellenarFormulario(plantillaEquipo.contadorGlobal);
 				ponerImagen(plantillaEquipo.fotos[plantillaEquipo.contadorGlobal]);
-			}	
+			}
 		});
 		panel_1.add(btnFirst);
-		
-		btnPrev = new JButton("Prev");
+
+		btnPrev = new JButton("< Prev");
 		btnPrev.setEnabled(false);
 		btnPrev.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
 				btnNext.setEnabled(true);
 				btnLast.setEnabled(true);
 				plantillaEquipo.contadorGlobal--;
-				if(plantillaEquipo.contadorGlobal < 0)
+				if (plantillaEquipo.contadorGlobal < 0)
 					plantillaEquipo.contadorGlobal = 0;
 				rellenarFormulario(plantillaEquipo.contadorGlobal);
 				ponerImagen(plantillaEquipo.fotos[plantillaEquipo.contadorGlobal]);
-				if(plantillaEquipo.contadorGlobal == 0) {
+				if (plantillaEquipo.contadorGlobal == 0) {
 					btnPrev.setEnabled(false);
 					btnFirst.setEnabled(false);
-				}	
-			}	
+				}
+			}
 		});
 		panel_1.add(btnPrev);
-		btnNext = new JButton("Next");
+		btnNext = new JButton("Next >");
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
 				btnPrev.setEnabled(true);
 				btnFirst.setEnabled(true);
 				plantillaEquipo.contadorGlobal++;
-				if(plantillaEquipo.contadorGlobal >= plantillaEquipo.jugadoresGlobal.length)
+				if (plantillaEquipo.contadorGlobal >= plantillaEquipo.jugadoresGlobal.length)
 					plantillaEquipo.contadorGlobal--;
 				rellenarFormulario(plantillaEquipo.contadorGlobal);
 				ponerImagen(plantillaEquipo.fotos[plantillaEquipo.contadorGlobal]);
-				if(plantillaEquipo.contadorGlobal == (plantillaEquipo.jugadoresGlobal.length-1)) {
+				if (plantillaEquipo.contadorGlobal == (plantillaEquipo.jugadoresGlobal.length - 1)) {
 					btnNext.setEnabled(false);
 					btnLast.setEnabled(false);
-				}	
-			}	
+				}
+			}
 		});
 		panel_1.add(btnNext);
-		
-		btnLast = new JButton("Last");
+
+		btnLast = new JButton("Last >>");
 		btnLast.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
 				btnPrev.setEnabled(true);
@@ -251,19 +265,19 @@ public class verEquipo extends JFrame {
 				plantillaEquipo.contadorGlobal = 10;
 				rellenarFormulario(plantillaEquipo.contadorGlobal);
 				ponerImagen(plantillaEquipo.fotos[plantillaEquipo.contadorGlobal]);
-			}	
+			}
 		});
 		panel_1.add(btnLast);
-		
+
 		panel_3 = new JPanel();
 		contentPane.add(panel_3);
-		
+
 		btnEntrenador = new JButton("Entrenador");
 		panel_3.add(btnEntrenador);
-		
+
 		btnResultados = new JButton("Resultados");
 		panel_3.add(btnResultados);
-		
+
 		btnInicio = new JButton("Inicio");
 		btnInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
@@ -276,7 +290,7 @@ public class verEquipo extends JFrame {
 		});
 		panel_3.add(btnInicio);
 	}
-	
+
 	public void ponerImagen(String foto) {
 		ImageIcon imagen = new ImageIcon(foto);
 		Image imagen2 = imagen.getImage();
@@ -284,36 +298,36 @@ public class verEquipo extends JFrame {
 		imagen = new ImageIcon(imagen3);
 		lblImagen.setIcon(imagen);
 	}
-	
+
 	public void rellenarFormulario(int contador) {
 		textNombre.setText(quitarEspacios(plantillaEquipo.jugadoresGlobal[contador][1]));
 		textDorsal.setText(quitarEspacios(plantillaEquipo.jugadoresGlobal[contador][0]));
 		textPosicion.setText(quitarEspacios(plantillaEquipo.jugadoresGlobal[contador][2]));
 		textPrecision.setText(quitarEspacios(plantillaEquipo.jugadoresGlobal[contador][3]));
 	}
-	
+
 	private String quitarEspacios(String palabra) {
 		int i;
 		for (i = 0; i < palabra.length(); i++) {
-			if(!(palabra.substring(i, i+1).equals(" "))) {
+			if (!(palabra.substring(i, i + 1).equals(" "))) {
 				break;
 			}
 		}
 		return palabra.substring(i);
 	}
-	
+
 	private boolean comprobarString(String palabra) {
 		for (int i = 0; i < palabra.length(); i++) {
 			char c = palabra.charAt(i);
-			if(!((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == ' ')) {
+			if (!((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == ' ')) {
 				return false;
 			}
 		}
 		return true;
 	}
-	
+
 	private boolean isEmpty(String palabra) {
-		if(palabra.isEmpty())
+		if (palabra.isEmpty())
 			return false;
 		return true;
 	}
