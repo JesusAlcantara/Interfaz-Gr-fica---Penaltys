@@ -38,9 +38,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.SwingConstants;
-import java.awt.SystemColor;
 import java.awt.Color;
+import java.awt.Toolkit;
 
+@SuppressWarnings("serial")
 public class Jugar extends JFrame {
 	public static Equipo eqLocal;
 	public static Equipo eqVisitante;
@@ -53,7 +54,9 @@ public class Jugar extends JFrame {
 	private JPanel contentPane;
 	public static int golesLocal = 0;
 	public static int golesVisitante = 0;
+	@SuppressWarnings("rawtypes")
 	private JList plantillaLocalList;
+	@SuppressWarnings("rawtypes")
 	private JList plantillaVisitanteList;
 	JLabel entrenadorVLBL;
 	JLabel entrenadorLLBL;
@@ -64,19 +67,19 @@ public class Jugar extends JFrame {
 	private JLabel resultadoLBL;
 	private int contador=0;
 	private int dorsalLanzador;
-	private String[] nombrePL;
-	private String[] nombrePV;
 	JLabel escudoLocal;
 	JLabel escudoVisitante;
 	Icon gol=new ImageIcon("resources/imagenesLanzamiento/gol.png");
 	Icon palo=new ImageIcon("resources/imagenesLanzamiento/palo.png");
 	Icon parada=new ImageIcon("resources/imagenesLanzamiento/parada.png");
-	//String [] equipos= {"Real Madrid","FC Barcelona","Atletico de Madrid","Sevilla FC","Cadiz CF"};
+	Icon lanzar=new ImageIcon("resources/imagenesLanzamiento/lanzar.png");
 	private DefaultListModel<String> modeloPlantillaLocal; 
 	private DefaultListModel<String> modeloPlantillaVisitante; 
+	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Jugar() {
 		super("Jugar");
+		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/icono/icono.png"));
 		setSize(800,600);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -123,11 +126,11 @@ public class Jugar extends JFrame {
 		escudoVisitante.setBounds(540, 91, 210, 170);
 		contentPane.add(escudoVisitante);
 		
-		JLabel lblNewLabel_4 = new JLabel("Jugadores");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_4.setBounds(50, 260, 210, 40);
-		contentPane.add(lblNewLabel_4);
+		JLabel jugadoresLlbl = new JLabel("Jugadores");
+		jugadoresLlbl.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		jugadoresLlbl.setHorizontalAlignment(SwingConstants.CENTER);
+		jugadoresLlbl.setBounds(50, 260, 210, 40);
+		contentPane.add(jugadoresLlbl);
 
 		mostrarLocal();
 		plantillaLocalList = new JList(modeloPlantillaLocal);
@@ -154,11 +157,11 @@ public class Jugar extends JFrame {
 		entrenadorLLBL.setBounds(50, 513, 170, 40);
 		contentPane.add(entrenadorLLBL);
 		
-		JLabel lblNewLabel_4_2 = new JLabel("Jugadores");
-		lblNewLabel_4_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_4_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_4_2.setBounds(540, 260, 210, 40);
-		contentPane.add(lblNewLabel_4_2);
+		JLabel jugadoresVlbl = new JLabel("Jugadores");
+		jugadoresVlbl.setHorizontalAlignment(SwingConstants.CENTER);
+		jugadoresVlbl.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		jugadoresVlbl.setBounds(540, 260, 210, 40);
+		contentPane.add(jugadoresVlbl);
 		mostrarVisitante();
 		plantillaVisitanteList = new JList(modeloPlantillaVisitante);
 		plantillaVisitanteList.setBounds(540, 301, 210, 201);
@@ -170,13 +173,14 @@ public class Jugar extends JFrame {
 		contentPane.add(entrenadorVLBL);
 
 		lanzarBTN = new JButton("Lanzar");
+		lanzarBTN.setIcon(lanzar);
 		lanzarBTN.setBackground(new Color(153, 180, 209));
 		lanzarBTN.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lanzarBTN.setBounds(300, 210, 195, 40);
 		lanzarBTN.addActionListener(new botones());
 		contentPane.add(lanzarBTN);
 		
-		lanzamientosLBL = new JLabel("Nº de Penaltis: "+contador+"-"+numLanzamientos);
+		lanzamientosLBL = new JLabel("Nº DE PENALTIS: "+contador+"-"+numLanzamientos);
 		lanzamientosLBL.setHorizontalAlignment(SwingConstants.CENTER);
 		lanzamientosLBL.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lanzamientosLBL.setBounds(270, 47, 260, 27);
@@ -189,6 +193,7 @@ public class Jugar extends JFrame {
 		contentPane.add(resultadoLBL);
 	}
 	private class botones implements ActionListener{
+		@SuppressWarnings("unchecked")
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			try {
@@ -197,7 +202,6 @@ public class Jugar extends JFrame {
 					escribirOLeer(nombreLocal);
 					eqLocal=equipo;
 					plantillaLocal=eqLocal.getPlantilla();
-					cargarVisitante();
 					escribirOLeer(nombreVisitante);
 					eqVisitante=equipo;
 					plantillaVisitante=eqVisitante.getPlantilla();
@@ -528,6 +532,7 @@ public class Jugar extends JFrame {
 	}
 
 	private Equipo deserializar(File nombre) throws FileNotFoundException, IOException, ClassNotFoundException {
+		@SuppressWarnings("resource")
 		ObjectInputStream is = new ObjectInputStream(new FileInputStream(nombre));
 		return (Equipo) is.readObject();
 	}
