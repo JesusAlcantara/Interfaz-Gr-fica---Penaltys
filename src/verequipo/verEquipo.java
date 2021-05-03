@@ -42,6 +42,8 @@ public class verEquipo extends JFrame {
 	private JButton btnEntrenador;
 	private JButton btnResultados;
 	private JButton btnInicio;
+	private JLabel lblEstadio;
+	private JLabel lblEscudo;
 
 	public verEquipo() {
 		super("Ver Equipo");
@@ -268,6 +270,9 @@ public class verEquipo extends JFrame {
 			}
 		});
 		panel_1.add(btnLast);
+		
+		lblEstadio = new JLabel("");
+		panel_1.add(lblEstadio);
 
 		panel_3 = new JPanel();
 		contentPane.add(panel_3);
@@ -289,6 +294,9 @@ public class verEquipo extends JFrame {
 			}
 		});
 		panel_3.add(btnInicio);
+		
+		lblEscudo = new JLabel("");
+		panel_3.add(lblEscudo);
 	}
 
 	public void ponerImagen(String foto) {
