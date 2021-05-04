@@ -1,5 +1,6 @@
 package verequipo;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -42,8 +43,9 @@ public class verEquipo extends JFrame {
 		super("Ver Equipo");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/icono/icono.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		setBounds(100, 100, 450, 300);
-		setSize(650, 475);
+		setSize(650, 525);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -170,7 +172,7 @@ public class verEquipo extends JFrame {
 				if (respuesta == fileChooser.APPROVE_OPTION) {
 					ruta = fileChooser.getSelectedFile().getPath();
 					Image imagen = new ImageIcon(ruta).getImage();
-					ImageIcon icon = new ImageIcon(imagen.getScaledInstance(150, 150, imagen.SCALE_SMOOTH));
+					ImageIcon icon = new ImageIcon(imagen.getScaledInstance(200, 200, imagen.SCALE_SMOOTH));
 					lblImagen.setIcon(icon);
 				}
 
@@ -296,7 +298,7 @@ public class verEquipo extends JFrame {
 	public void ponerImagen(String foto) {
 		ImageIcon imagen = new ImageIcon(foto);
 		Image imagen2 = imagen.getImage();
-		Image imagen3 = imagen2.getScaledInstance(150, 150, Image.SCALE_SMOOTH);
+		Image imagen3 = imagen2.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
 		imagen = new ImageIcon(imagen3);
 		lblImagen.setIcon(imagen);
 	}
