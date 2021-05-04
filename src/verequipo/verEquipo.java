@@ -1,6 +1,7 @@
 package verequipo;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -88,14 +89,17 @@ public class verEquipo extends JFrame {
 			public void actionPerformed(ActionEvent ev) {
 				ArrayList<Componente> plantilla = plantillaEquipo.equipo.getPlantilla();
 				int i = 0;
+				boolean estado = false;
 				for (Componente c : plantilla) {
 					if (c instanceof Jugador) {
 						if (i == plantillaEquipo.contadorGlobal) {
 							// Nombre
 							if (comprobarString(textNombre.getText()) == false
-									|| isEmpty(textNombre.getText()) == false)
+									|| isEmpty(textNombre.getText()) == false) {
 								JOptionPane.showMessageDialog(verEquipo.this, "Nombre incorrecto.", "Error",
 										JOptionPane.ERROR_MESSAGE);
+								estado = true;
+							}
 							else {
 								((Jugador) c).setNombre(textNombre.getText());
 								plantillaEquipo.jugadoresGlobal[plantillaEquipo.contadorGlobal][1] = textNombre
@@ -107,16 +111,19 @@ public class verEquipo extends JFrame {
 								((Jugador) c).setDorsal(Integer.parseInt(textDorsal.getText()));
 								plantillaEquipo.jugadoresGlobal[plantillaEquipo.contadorGlobal][0] = textDorsal
 										.getText();
-							} catch (Exception e) {
+							} catch (NumberFormatException e) {
 								JOptionPane.showMessageDialog(verEquipo.this, "Dorsal incorrecto.", "Error",
 										JOptionPane.ERROR_MESSAGE);
+								estado = true;
 							}
 
 							// Posicion
 							if (comprobarString(textPosicion.getText()) == false
-									|| isEmpty(textPosicion.getText()) == false)
+									|| isEmpty(textPosicion.getText()) == false) {
 								JOptionPane.showMessageDialog(verEquipo.this, "Posición incorrecta.", "Error",
 										JOptionPane.ERROR_MESSAGE);
+								estado = true;
+							}
 							else {
 								((Jugador) c).setPosicion(textPosicion.getText());
 								plantillaEquipo.jugadoresGlobal[plantillaEquipo.contadorGlobal][2] = textPosicion
@@ -128,9 +135,10 @@ public class verEquipo extends JFrame {
 								((Jugador) c).setPrecision(Integer.parseInt(textPrecision.getText()));
 								plantillaEquipo.jugadoresGlobal[plantillaEquipo.contadorGlobal][3] = textPrecision
 										.getText();
-							} catch (Exception e) {
+							} catch (NumberFormatException e) {
 								JOptionPane.showMessageDialog(verEquipo.this, "Precisión incorrecta.", "Error",
 										JOptionPane.ERROR_MESSAGE);
+								estado = true;
 							}
 
 						}
@@ -140,9 +148,11 @@ public class verEquipo extends JFrame {
 				Equipo eq1 = new Equipo(plantillaEquipo.equipo.getNombre(), plantillaEquipo.equipo.getCiudad(),
 						plantillaEquipo.equipo.getEstadio(), plantillaEquipo.equipo.getFoto(), plantilla);
 				try {
-					Jugar.serializar(eq1, plantillaEquipo.equipo.getNombre());
-					JOptionPane.showMessageDialog(verEquipo.this, "Datos modificados.", "Modificación",
-							JOptionPane.PLAIN_MESSAGE);
+					if(estado = false) {
+						Jugar.serializar(eq1, plantillaEquipo.equipo.getNombre());
+						JOptionPane.showMessageDialog(verEquipo.this, "Datos modificados.", "Modificación",
+								JOptionPane.PLAIN_MESSAGE);
+					}
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
