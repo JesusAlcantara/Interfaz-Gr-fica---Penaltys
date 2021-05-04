@@ -34,7 +34,7 @@ public class verEquipo extends JFrame {
 	JLabel lblImagen;
 	private JButton btnImage, btnLast;
 	private JButton btnEntrenador, btnResultados, btnInicio;
-	private JLabel lblEstadio, lblEscudo;
+	JLabel lblEstadio, lblEscudo;
 	private Image inicio;
 	private ImageIcon inicioModificado;
 
@@ -43,7 +43,7 @@ public class verEquipo extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/icono/icono.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		setSize(650, 350);
+		setSize(650, 475);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -33,6 +33,9 @@ public class plantillaEquipo extends JFrame {
 	static int contadorGlobal = 0;
 	Image ojeador = new ImageIcon("resources/plantilla/ojeador.jpg").getImage();
 	ImageIcon ojeadorModificado = new ImageIcon(ojeador.getScaledInstance(150, 150, ojeador.SCALE_SMOOTH));
+	Image estadio;
+	ImageIcon estadioModificado;
+	ImageIcon escudoModificado;
 
 	public static void main(String[] args) {
 		plantillaEquipo ver = new plantillaEquipo();
@@ -71,6 +74,10 @@ public class plantillaEquipo extends JFrame {
 					String[][] jugMadrid = returnInformacion(lineas);
 					jugadoresGlobal = jugMadrid;
 					verMadrid.rellenarFormulario(contadorGlobal);
+					estadio = new ImageIcon("resources/estadios/bernabeu.jpg").getImage();
+					estadioModificado = new ImageIcon(estadio.getScaledInstance(200, 200, estadio.SCALE_SMOOTH));
+					verMadrid.lblEstadio.setIcon(estadioModificado);
+					verMadrid.lblEscudo.setIcon(iconMadrid);
 					verMadrid.ponerImagen(fotos[contadorGlobal]);
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
@@ -108,6 +115,10 @@ public class plantillaEquipo extends JFrame {
 					String[][] jugBarcelona = returnInformacion(lineas);
 					jugadoresGlobal = jugBarcelona;
 					verBarcelona.rellenarFormulario(contadorGlobal);
+					estadio = new ImageIcon("resources/estadios/campnou.jpg").getImage();
+					estadioModificado = new ImageIcon(estadio.getScaledInstance(200, 200, estadio.SCALE_SMOOTH));
+					verBarcelona.lblEstadio.setIcon(estadioModificado);
+					verBarcelona.lblEscudo.setIcon(iconBarcelona);
 					verBarcelona.ponerImagen(fotos[contadorGlobal]);
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
@@ -145,6 +156,10 @@ public class plantillaEquipo extends JFrame {
 					String[][] jugCadiz = returnInformacion(lineas);
 					jugadoresGlobal = jugCadiz;
 					verCadiz.rellenarFormulario(contadorGlobal);
+					estadio = new ImageIcon("resources/estadios/carranza.jpg").getImage();
+					estadioModificado = new ImageIcon(estadio.getScaledInstance(200, 200, estadio.SCALE_SMOOTH));
+					verCadiz.lblEstadio.setIcon(estadioModificado);
+					verCadiz.lblEscudo.setIcon(iconCadiz);
 					verCadiz.ponerImagen(fotos[contadorGlobal]);
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
@@ -182,6 +197,10 @@ public class plantillaEquipo extends JFrame {
 					String[][] jugSevilla = returnInformacion(lineas);
 					jugadoresGlobal = jugSevilla;
 					verSevilla.rellenarFormulario(contadorGlobal);
+					estadio = new ImageIcon("resources/estadios/pizjuan.jpg").getImage();
+					estadioModificado = new ImageIcon(estadio.getScaledInstance(200, 200, estadio.SCALE_SMOOTH));
+					verSevilla.lblEstadio.setIcon(estadioModificado);
+					verSevilla.lblEscudo.setIcon(iconSevilla);
 					verSevilla.ponerImagen(fotos[contadorGlobal]);
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
@@ -219,6 +238,10 @@ public class plantillaEquipo extends JFrame {
 					String[][] jugAtletico = returnInformacion(lineas);
 					jugadoresGlobal = jugAtletico;
 					verAtletico.rellenarFormulario(contadorGlobal);
+					estadio = new ImageIcon("resources/estadios/wanda.jpg").getImage();
+					estadioModificado = new ImageIcon(estadio.getScaledInstance(200, 200, estadio.SCALE_SMOOTH));
+					verAtletico.lblEstadio.setIcon(estadioModificado);
+					verAtletico.lblEscudo.setIcon(iconAtletico);
 					verAtletico.ponerImagen(fotos[contadorGlobal]);
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
