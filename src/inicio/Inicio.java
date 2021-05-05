@@ -18,13 +18,8 @@ import verequipo.plantillaEquipo;
 public class Inicio extends JFrame {
 
 	private JPanel contentPane, panel, panel_1, panel_2;
-	private JButton btnJugar;
-	private JButton btnverEquipo;
-	private JButton btnClasifisicacion;
+	private JButton btnJugar, btnverEquipo, btnClasifisicacion;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -38,9 +33,6 @@ public class Inicio extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public Inicio() {
 		super("Inicio");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

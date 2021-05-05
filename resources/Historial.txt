@@ -107,3 +107,4 @@ FC Barcelona;Sevilla FC;1;0
 Real Madrid;Atletico de Madrid;1;0
 FC Barcelona;Sevilla FC;8;6
 Real Madrid;Cadiz CF;1;2
+FC Barcelona;Real Madrid;0;1
