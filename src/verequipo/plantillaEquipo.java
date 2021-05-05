@@ -1,5 +1,6 @@
 package verequipo;
 
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -36,10 +37,6 @@ public class plantillaEquipo extends JFrame {
 	Image estadio;
 	ImageIcon estadioModificado;
 	ImageIcon escudoModificado;
-
-	public static void main(String[] args) {
-		plantillaEquipo ver = new plantillaEquipo();
-	}
 
 	public plantillaEquipo() {
 		super("Ver Equipo");
@@ -260,6 +257,8 @@ public class plantillaEquipo extends JFrame {
 		btnAtletico.setIcon(iconAtletico);
 		contentPane.add(btnAtletico);
 		setVisible(true);
+		
+		contentPane.setBackground(Color.WHITE);
 	}
 
 	private String[][] returnInformacion(String[] lineas) {

@@ -1,7 +1,6 @@
 package verequipo;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -24,6 +23,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import clasesprincipales.Componente;
 import clasesprincipales.Equipo;
 import clasesprincipales.Jugador;
+import inicio.Inicio;
 import jugar.Jugar;
 
 public class verEquipo extends JFrame {
@@ -44,7 +44,6 @@ public class verEquipo extends JFrame {
 		super("Ver Equipo");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/icono/icono.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 		setBounds(100, 100, 450, 300);
 		setSize(650, 525);
 		setLocationRelativeTo(null);
@@ -293,9 +292,9 @@ public class verEquipo extends JFrame {
 		btnInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
 				verEquipo.this.setVisible(false);
-				plantillaEquipo plantilla = new plantillaEquipo();
+				Inicio i = new Inicio();
 				plantillaEquipo.contadorGlobal = 0;
-				plantilla.setVisible(true);
+				i.setVisible(true);
 				dispose();
 			}
 		});
@@ -303,6 +302,7 @@ public class verEquipo extends JFrame {
 		
 		lblEscudo = new JLabel("");
 		panel_3.add(lblEscudo);
+
 	}
 
 	public void ponerImagen(String foto) {
@@ -320,7 +320,7 @@ public class verEquipo extends JFrame {
 		textPrecision.setText(quitarEspacios(plantillaEquipo.jugadoresGlobal[contador][3]));
 	}
 
-	private String quitarEspacios(String palabra) {
+	public String quitarEspacios(String palabra) {
 		int i;
 		for (i = 0; i < palabra.length(); i++) {
 			if (!(palabra.substring(i, i + 1).equals(" "))) {
