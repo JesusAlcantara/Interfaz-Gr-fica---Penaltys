@@ -34,6 +34,10 @@ public class VerEntrenador extends JFrame {
 	private JLabel lblNombre, lblEdad, lblNacionalidad, lblEntrenador;
 	private JButton btnModificar, btnResultados, btnVolver, btnSeleccion;
 
+	public static void main(String[] args) {
+		VerEntrenador v = new VerEntrenador();
+		v.setVisible(true);
+	}
 	public VerEntrenador() {
 		super("Entrenador");
 		setSize(500, 400);
@@ -90,10 +94,12 @@ public class VerEntrenador extends JFrame {
 		btnSeleccion.setBounds(287, 138, 119, 23);
 		contentPane.add(btnSeleccion);
 
-		lblEntrenador = new JLabel("New label");
+		lblEntrenador = new JLabel("");
 		lblEntrenador.setBounds(287, 49, 49, 14);
-		establecerImagen();
+		establecerImagen(plantillaEquipo.fotos[plantillaEquipo.contadorGlobal]);
 		contentPane.add(lblEntrenador);
+		
+		DatosEntrenador(plantillaEquipo.contadorGlobal);
 
 		setVisible(true);
 
@@ -103,11 +109,11 @@ public class VerEntrenador extends JFrame {
 		btnResultados.addActionListener(m);
 	}
 
-	private void establecerImagen() {
+	private void establecerImagen(String foto) {
 		// TODO Auto-generated method stub
-		ImageIcon imagen = new ImageIcon();
+		ImageIcon imagen = new ImageIcon(foto);
 		Image imagen2 = imagen.getImage();
-		Image imagen3 = imagen2.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+		Image imagen3 = imagen2.getScaledInstance(200, 200, imagen2.SCALE_SMOOTH);
 		imagen = new ImageIcon(imagen3);
 		lblEntrenador.setIcon(imagen);
 	}
@@ -121,24 +127,25 @@ public class VerEntrenador extends JFrame {
 				ArrayList<Componente> plantilla = plantillaEquipo.equipo.getPlantilla();
 				int cont = plantillaEquipo.contadorGlobal;
 
-			} else if (o == btnSeleccion) {/*
+			} else if (o == btnSeleccion) {
 				ArrayList<Componente> plantilla = plantillaEquipo.equipo.getPlantilla();
 
+				plantillaEquipo.contadorGlobal = 11;
 				String rutaOriginal = plantilla.get(plantillaEquipo.contadorGlobal).getFoto();
 				String ruta = "";
 				JFileChooser fileChooser = new JFileChooser();
 				FileNameExtensionFilter filtrado = new FileNameExtensionFilter("JPG, PNG, JPEG & GIF", "jpg", "png",
 						"jpeg", "gif");
 				fileChooser.setFileFilter(filtrado);
-				int respuesta = fileChooser.showOpenDialog(verEquipo.this);
+				int respuesta = fileChooser.showOpenDialog(VerEntrenador.this);
 				if (respuesta == fileChooser.APPROVE_OPTION) {
 					ruta = fileChooser.getSelectedFile().getPath();
 					Image imagen = new ImageIcon(ruta).getImage();
 					ImageIcon icon = new ImageIcon(imagen.getScaledInstance(200, 200, imagen.SCALE_SMOOTH));
-					lblImagen.setIcon(icon);
+					lblEntrenador.setIcon(icon);
 				}
 
-				for (Componente c : plantilla) {
+				/*for (Componente c : plantilla) {
 					if (c instanceof Jugador) {
 						if (((Jugador) c).getFoto().equals(rutaOriginal)) {
 							((Jugador) c).setFoto(ruta);
@@ -146,10 +153,10 @@ public class VerEntrenador extends JFrame {
 						}
 					}
 				}
-
+*/
 				Equipo eq1 = new Equipo(plantillaEquipo.equipo.getNombre(), plantillaEquipo.equipo.getCiudad(),
 						plantillaEquipo.equipo.getEstadio(), plantillaEquipo.equipo.getFoto(), plantilla);
-			*/	
+			
 			} else if (o == btnModificar) {/*
 				ArrayList<Componente> plantilla = plantillaEquipo.equipo.getPlantilla();
 				int i = 0;
@@ -216,7 +223,9 @@ public class VerEntrenador extends JFrame {
 	}
 }
 	// Crear metodo con los datos de entrenador
-	public void DatosEntrenador() {
-
+	public void DatosEntrenador(int contador) {
+		txtNombre.setText(plantillaEquipo.jugadoresGlobal[contador][0]);
+		txtEdad.setText(plantillaEquipo.jugadoresGlobal[contador][1]);
+		txtNacionalidad.setText(plantillaEquipo.jugadoresGlobal[contador][2]);
 	}
 }

@@ -29,8 +29,8 @@ public class plantillaEquipo extends JFrame {
 	private Icon iconMadrid, iconBarcelona, iconCadiz, iconAtletico, iconSevilla;
 	static Equipo realMadrid, barcelona, sevilla, atletico, cadiz;
 	static Equipo equipo;
-	static String[][] jugadoresGlobal = new String[11][4];
-	static String[] fotos = new String[11];
+	static String[][] jugadoresGlobal = new String[12][4];
+	static String[] fotos = new String[12];
 	static int contadorGlobal = 0;
 	Image ojeador = new ImageIcon("resources/plantilla/ojeador.jpg").getImage();
 	ImageIcon ojeadorModificado = new ImageIcon(ojeador.getScaledInstance(150, 150, ojeador.SCALE_SMOOTH));
@@ -61,8 +61,8 @@ public class plantillaEquipo extends JFrame {
 				try {
 					realMadrid = Jugar.deserializar(new File("resources/Real Madrid"));
 					equipo = realMadrid;
-					Componente[] jugadores = new Componente[11];
-					String[] lineas = new String[11];
+					Componente[] jugadores = new Componente[12];
+					String[] lineas = new String[12];
 					for (int i = 0; i < jugadores.length; i++) {
 						jugadores[i] = realMadrid.getPlantilla().get(i);
 						fotos[i] = realMadrid.getPlantilla().get(i).getFoto();
@@ -102,8 +102,8 @@ public class plantillaEquipo extends JFrame {
 				try {
 					barcelona = Jugar.deserializar(new File("resources/FC Barcelona"));
 					equipo = barcelona;
-					Componente[] jugadores = new Componente[11];
-					String[] lineas = new String[11];
+					Componente[] jugadores = new Componente[12];
+					String[] lineas = new String[12];
 					for (int i = 0; i < jugadores.length; i++) {
 						jugadores[i] = barcelona.getPlantilla().get(i);
 						fotos[i] = barcelona.getPlantilla().get(i).getFoto();
@@ -143,8 +143,8 @@ public class plantillaEquipo extends JFrame {
 				try {
 					cadiz = Jugar.deserializar(new File("resources/Cadiz CF"));
 					equipo = cadiz;
-					Componente[] jugadores = new Componente[11];
-					String[] lineas = new String[11];
+					Componente[] jugadores = new Componente[12];
+					String[] lineas = new String[12];
 					for (int i = 0; i < jugadores.length; i++) {
 						jugadores[i] = cadiz.getPlantilla().get(i);
 						fotos[i] = cadiz.getPlantilla().get(i).getFoto();
@@ -184,8 +184,8 @@ public class plantillaEquipo extends JFrame {
 				try {
 					sevilla = Jugar.deserializar(new File("resources/Sevilla FC"));
 					equipo = sevilla;
-					Componente[] jugadores = new Componente[11];
-					String[] lineas = new String[11];
+					Componente[] jugadores = new Componente[12];
+					String[] lineas = new String[12];
 					for (int i = 0; i < jugadores.length; i++) {
 						jugadores[i] = sevilla.getPlantilla().get(i);
 						fotos[i] = sevilla.getPlantilla().get(i).getFoto();
@@ -225,8 +225,8 @@ public class plantillaEquipo extends JFrame {
 				try {
 					atletico = Jugar.deserializar(new File("resources/Atletico de Madrid"));
 					equipo = atletico;
-					Componente[] jugadores = new Componente[11];
-					String[] lineas = new String[11];
+					Componente[] jugadores = new Componente[12];
+					String[] lineas = new String[12];
 					for (int i = 0; i < jugadores.length; i++) {
 						jugadores[i] = atletico.getPlantilla().get(i);
 						fotos[i] = atletico.getPlantilla().get(i).getFoto();
@@ -262,7 +262,7 @@ public class plantillaEquipo extends JFrame {
 	}
 
 	private String[][] returnInformacion(String[] lineas) {
-		String[][] jugadores = new String[11][4];
+		String[][] jugadores = new String[12][4];
 		String caracterFinal;
 		for (int i = 0; i < lineas.length; i++) {
 			boolean dato = false;

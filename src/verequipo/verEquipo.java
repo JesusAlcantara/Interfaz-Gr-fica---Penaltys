@@ -281,6 +281,15 @@ public class verEquipo extends JFrame {
 		contentPane.add(panel_3);
 
 		btnEntrenador = new JButton("Entrenador");
+		btnEntrenador.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ev) {
+				verEquipo.this.setVisible(false);
+				VerEntrenador v = new VerEntrenador();
+				plantillaEquipo.contadorGlobal = 11;
+				v.setVisible(true);
+				dispose();
+			}
+		});
 		panel_3.add(btnEntrenador);
 
 		btnResultados = new JButton("Resultados");

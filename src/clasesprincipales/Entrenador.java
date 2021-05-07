@@ -31,7 +31,7 @@ public class Entrenador extends Componente implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Entrenador [nombre= " + getNombre() + ", edad= " + getEdad() + "]";
+		return "Nombre: " + getNombre() + ", edad: " + getEdad() + ", nacionalidad: " + nacionalidad;
 	}
 
 }
