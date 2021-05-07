@@ -148,7 +148,7 @@ public class verEquipo extends JFrame {
 				}
 				Equipo eq1 = new Equipo(plantillaEquipo.equipo.getNombre(), plantillaEquipo.equipo.getCiudad(),
 						plantillaEquipo.equipo.getEstadio(), plantillaEquipo.equipo.getFoto(), plantilla);
-				if(estado = true) {
+				if(estado) {
 					try {
 						Jugar.serializar(eq1, plantillaEquipo.equipo.getNombre());
 						JOptionPane.showMessageDialog(verEquipo.this, "Datos modificados.", "Modificación",
