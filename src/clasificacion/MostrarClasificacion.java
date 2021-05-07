@@ -2,6 +2,7 @@ package clasificacion;
 
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -38,6 +39,7 @@ public class MostrarClasificacion extends JFrame{
 	public MostrarClasificacion() throws IOException, ClassNotFoundException {
 		super("Clasificacion");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/icono/icono.png"));
 		setSize(550,400);
 		setLayout(new FlowLayout());
 		setLocationRelativeTo(null);
