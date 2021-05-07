@@ -346,7 +346,7 @@ public class Jugar extends JFrame {
 		Jugador j9 = new Jugador("Karim Benzema","resources/plantilla/Real Madrid/benzema.png","Delantero", 9, 90);
 		Jugador j10 = new Jugador("Luka Modric","resources/plantilla/Real Madrid/modric.png","Centrocampista", 10, 90);
 		Jugador j11 = new Jugador("Marco Asensio","resources/plantilla/Real Madrid/asensio.png","Extremo", 11, 85);
-		Entrenador e1 = new Entrenador("Zidane","resources/plantilla/Real Madrid/zidane.png", 48);
+		Entrenador e1 = new Entrenador("Zidane","resources/plantilla/Real Madrid/zidane.png", 48, "Francés");
 		plantillaRealMadrid.add(j1);
 		plantillaRealMadrid.add(j2);
 		plantillaRealMadrid.add(j3);
@@ -376,7 +376,7 @@ public class Jugar extends JFrame {
 		Jugador j9 = new Jugador("Antoine Griezmann","resources/plantilla/Barcelona/griezzman.png","Delantero", 7, 70);
 		Jugador j10 = new Jugador("Lionel Messi","resources/plantilla/Barcelona/messi.png","Extremo", 10, 90);
 		Jugador j11 = new Jugador("Ousmane Dembélé","resources/plantilla/Barcelona/dembele.png","Extremo", 11, 85);
-		Entrenador e1 = new Entrenador("Koeman","resources/plantilla/Barcelona/koeman.png", 58);
+		Entrenador e1 = new Entrenador("Koeman","resources/plantilla/Barcelona/koeman.png", 58, "Holandés");
 		plantillaBarcelona.add(j1);
 		plantillaBarcelona.add(j2);
 		plantillaBarcelona.add(j3);
@@ -406,7 +406,7 @@ public class Jugar extends JFrame {
 		Jugador j9 = new Jugador("Choco Lozano","resources/plantilla/Cadiz/lozano.png","Delantero", 9, 70);
 		Jugador j10 = new Jugador("Negredo","resources/plantilla/Cadiz/negredo.png","Delantero", 18, 90);
 		Jugador j11 = new Jugador("Perea","resources/plantilla/Cadiz/perea.png","Extremo", 10, 80);
-		Entrenador e1 = new Entrenador("Cervera","resources/plantilla/Cadiz/cervera.png", 55);
+		Entrenador e1 = new Entrenador("Cervera","resources/plantilla/Cadiz/cervera.png", 55, "Español");
 		plantillaCadiz.add(j1);
 		plantillaCadiz.add(j2);
 		plantillaCadiz.add(j3);
@@ -436,7 +436,7 @@ public class Jugar extends JFrame {
 		Jugador j9 = new Jugador("Luis Suarez","resources/plantilla/Atletico Madrid/suarez.png","Delantero", 9, 90);
 		Jugador j10 = new Jugador("Lemar","resources/plantilla/Atletico Madrid/lemar.png","Extremo", 11, 90);
 		Jugador j11 = new Jugador("Yannick Carrasco","resources/plantilla/Atletico Madrid/carrasco.png","Extremo", 21, 90);
-		Entrenador e1 = new Entrenador("Simeone","resources/plantilla/Atletico Madrid/simeone.png", 50);
+		Entrenador e1 = new Entrenador("Simeone","resources/plantilla/Atletico Madrid/simeone.png", 50, "Argentino");
 		plantillaAtleticoDeMadrid.add(j1);
 		plantillaAtleticoDeMadrid.add(j2);
 		plantillaAtleticoDeMadrid.add(j3);
@@ -466,7 +466,7 @@ public class Jugar extends JFrame {
 		Jugador j9 = new Jugador("En-Nesyri","resources/plantilla/Sevilla/ennesyri.png","Delantero", 15, 70);
 		Jugador j10 = new Jugador("Rakitic","resources/plantilla/Sevilla/rakitic.png","Centrocampista", 10, 90);
 		Jugador j11 = new Jugador("Ocampos","resources/plantilla/Sevilla/ocampos.png","Extremo", 5, 85);
-		Entrenador e1 = new Entrenador("Lopetegui","resources/plantilla/Sevilla/lopetegui.png", 54);
+		Entrenador e1 = new Entrenador("Lopetegui","resources/plantilla/Sevilla/lopetegui.png", 54, "Español");
 		plantillaSevilla.add(j1);
 		plantillaSevilla.add(j2);
 		plantillaSevilla.add(j3);
