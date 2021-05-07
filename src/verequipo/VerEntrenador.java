@@ -184,7 +184,7 @@ public class VerEntrenador extends JFrame {
 										.getText();
 							}
 
-							// Dorsal
+							// Edad
 							try {
 								((Entrenador) c).setEdad(Integer.parseInt(txtEdad.getText()));
 								plantillaEquipo.jugadoresGlobal[plantillaEquipo.contadorGlobal][1] = txtEdad
@@ -195,8 +195,8 @@ public class VerEntrenador extends JFrame {
 								estado = true;
 							}
 
-							// Posicion
-						/*	if (comprobarString(textPosicion.getText()) == false
+							// Nacionalidad
+						/*	if (comprobarString(txtNacionalidad.getText()) == false
 									|| isEmpty(textPosicion.getText()) == false) {
 								JOptionPane.showMessageDialog(verEquipo.this, "Posición incorrecta.", "Error",
 										JOptionPane.ERROR_MESSAGE);

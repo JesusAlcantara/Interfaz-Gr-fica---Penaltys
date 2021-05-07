@@ -6,12 +6,14 @@ import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import clasificacion.MostrarClasificacion;
 import opciones.Opciones;
 import verequipo.plantillaEquipo;
 
@@ -81,6 +83,23 @@ public class Inicio extends JFrame {
 		contentPane.add(panel_2);
 		
 		btnClasifisicacion = new JButton("Clasificación");
+		btnClasifisicacion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ev) {
+				setVisible(false);
+				MostrarClasificacion c = null;
+				try {
+					c = new MostrarClasificacion();
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				c.setVisible(true);
+				dispose();
+			}
+		});
 		panel_2.add(btnClasifisicacion);
 	}
 

@@ -1,0 +1,5 @@
+Real Madrid;78
+Atletico de Madrid;75
+FC Barcelona;72
+Sevilla FC;66
+Cadiz CF;51
