@@ -20,13 +20,13 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import clasesprincipales.Componente;
+import clasesprincipales.Entrenador;
 import clasesprincipales.Equipo;
 import clasesprincipales.Jugador;
 import jugar.Jugar;
 import verequipo.plantillaEquipo;
 import verequipo.verEquipo;
 
-@SuppressWarnings("serial")
 public class VerEntrenador extends JFrame {
 
 	private JPanel contentPane;
@@ -87,6 +87,17 @@ public class VerEntrenador extends JFrame {
 
 		btnVolver = new JButton("Volver");
 		btnVolver.setBounds(300, 200, 106, 23);
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ev) {
+				VerEntrenador.this.setVisible(false);
+				verEquipo v = new verEquipo();
+				plantillaEquipo.contadorGlobal = 0;
+				v.ponerImagen(plantillaEquipo.fotos[plantillaEquipo.contadorGlobal]);
+				v.rellenarFormulario(plantillaEquipo.contadorGlobal);
+				v.setVisible(true);
+				dispose();
+			}
+		});
 		contentPane.add(btnVolver);
 
 		btnSeleccion = new JButton("Selecciona Imagen");
@@ -95,11 +106,8 @@ public class VerEntrenador extends JFrame {
 		contentPane.add(btnSeleccion);
 
 		lblEntrenador = new JLabel("");
-		lblEntrenador.setBounds(287, 49, 49, 14);
 		establecerImagen(plantillaEquipo.fotos[plantillaEquipo.contadorGlobal]);
 		contentPane.add(lblEntrenador);
-		
-		DatosEntrenador(plantillaEquipo.contadorGlobal);
 
 		setVisible(true);
 
@@ -157,38 +165,38 @@ public class VerEntrenador extends JFrame {
 				Equipo eq1 = new Equipo(plantillaEquipo.equipo.getNombre(), plantillaEquipo.equipo.getCiudad(),
 						plantillaEquipo.equipo.getEstadio(), plantillaEquipo.equipo.getFoto(), plantilla);
 			
-			} else if (o == btnModificar) {/*
+			} else if (o == btnModificar) {
 				ArrayList<Componente> plantilla = plantillaEquipo.equipo.getPlantilla();
 				int i = 0;
 				boolean estado = false;
 				for (Componente c : plantilla) {
-					if (c instanceof Jugador) {
+					if (c instanceof Entrenador) {
 						if (i == plantillaEquipo.contadorGlobal) {
 							// Nombre
-							if (comprobarString(textNombre.getText()) == false
-									|| isEmpty(textNombre.getText()) == false) {
-								JOptionPane.showMessageDialog(verEquipo.this, "Nombre incorrecto.", "Error",
+							if (verEquipo.comprobarString(txtNombre.getText()) == false
+									|| verEquipo.isEmpty(txtNombre.getText()) == false) {
+								JOptionPane.showMessageDialog(VerEntrenador.this, "Nombre incorrecto.", "Error",
 										JOptionPane.ERROR_MESSAGE);
 								estado = true;
 							} else {
-								((Jugador) c).setNombre(textNombre.getText());
-								plantillaEquipo.jugadoresGlobal[plantillaEquipo.contadorGlobal][1] = textNombre
+								((Entrenador) c).setNombre(txtNombre.getText());
+								plantillaEquipo.jugadoresGlobal[plantillaEquipo.contadorGlobal][0] = txtNombre
 										.getText();
 							}
 
 							// Dorsal
 							try {
-								((Jugador) c).setDorsal(Integer.parseInt(textDorsal.getText()));
-								plantillaEquipo.jugadoresGlobal[plantillaEquipo.contadorGlobal][0] = textDorsal
+								((Entrenador) c).setEdad(Integer.parseInt(txtEdad.getText()));
+								plantillaEquipo.jugadoresGlobal[plantillaEquipo.contadorGlobal][1] = txtEdad
 										.getText();
-							} catch (NumberFormatException e) {
-								JOptionPane.showMessageDialog(verEquipo.this, "Dorsal incorrecto.", "Error",
+							} catch (NumberFormatException ex) {
+								JOptionPane.showMessageDialog(VerEntrenador.this, "Edad incorrect.", "Error",
 										JOptionPane.ERROR_MESSAGE);
 								estado = true;
 							}
 
 							// Posicion
-							if (comprobarString(textPosicion.getText()) == false
+						/*	if (comprobarString(textPosicion.getText()) == false
 									|| isEmpty(textPosicion.getText()) == false) {
 								JOptionPane.showMessageDialog(verEquipo.this, "Posición incorrecta.", "Error",
 										JOptionPane.ERROR_MESSAGE);
@@ -209,7 +217,7 @@ public class VerEntrenador extends JFrame {
 										JOptionPane.ERROR_MESSAGE);
 								estado = true;
 							}
-
+						 */
 						}
 					}
 					i++;
@@ -218,9 +226,9 @@ public class VerEntrenador extends JFrame {
 						plantillaEquipo.equipo.getEstadio(), plantillaEquipo.equipo.getFoto(), plantilla);
 
 			}
-		*/
-}
-	}
+		
+		}
+	
 }
 	// Crear metodo con los datos de entrenador
 	public void DatosEntrenador(int contador) {

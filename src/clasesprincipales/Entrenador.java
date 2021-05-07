@@ -5,12 +5,12 @@ import java.io.Serializable;
 public class Entrenador extends Componente implements Serializable{
 
 	private int edad;
-	private String nacionalidad;
+	//private String nacionalidad;
 
-	public Entrenador(String nombre, String foto, int edad, String nacionalidad) {
+	public Entrenador(String nombre, String foto, int edad/*, String nacionalidad*/) {
 		super(nombre, foto);
 		this.edad = edad;
-		this.nacionalidad = nacionalidad;
+		//this.nacionalidad = nacionalidad;
 	}
 
 	public int getEdad() {
@@ -21,17 +21,17 @@ public class Entrenador extends Componente implements Serializable{
 		this.edad = edad;
 	}
 	
-	public String getNacionalidad() {
+	/*public String getNacionalidad() {
 		return nacionalidad;
 	}
 
 	public void setNacionalidad(String nacionalidad) {
 		this.nacionalidad = nacionalidad;
 	}
-
+*/
 	@Override
 	public String toString() {
-		return "Nombre: " + getNombre() + ", edad: " + getEdad() + ", nacionalidad: " + nacionalidad;
+		return "Nombre: " + getNombre() + ", edad: " + getEdad()/* + ", nacionalidad: " + nacionalidad*/;
 	}
 
 }

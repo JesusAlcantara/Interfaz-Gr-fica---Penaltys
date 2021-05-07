@@ -17,8 +17,8 @@ import javax.swing.border.EmptyBorder;
 import clasesprincipales.Equipo;
 import inicio.Inicio;
 
-@SuppressWarnings("serial")
 public class ResultadoFinal extends JFrame {
+
 	private int golesLocal;
 	private int golesVisitante;
 	private String nombreLocal;

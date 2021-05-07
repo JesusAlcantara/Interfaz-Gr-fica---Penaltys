@@ -6,6 +6,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -39,6 +40,7 @@ public class verEquipo extends JFrame {
 	JLabel lblEstadio, lblEscudo;
 	private Image inicio;
 	private ImageIcon inicioModificado;
+	private boolean estado;
 
 	public verEquipo() {
 		super("Ver Equipo");
@@ -88,7 +90,7 @@ public class verEquipo extends JFrame {
 			public void actionPerformed(ActionEvent ev) {
 				ArrayList<Componente> plantilla = plantillaEquipo.equipo.getPlantilla();
 				int i = 0;
-				boolean estado = false;
+				estado = true;
 				for (Componente c : plantilla) {
 					if (c instanceof Jugador) {
 						if (i == plantillaEquipo.contadorGlobal) {
@@ -97,7 +99,7 @@ public class verEquipo extends JFrame {
 									|| isEmpty(textNombre.getText()) == false) {
 								JOptionPane.showMessageDialog(verEquipo.this, "Nombre incorrecto.", "Error",
 										JOptionPane.ERROR_MESSAGE);
-								estado = true;
+								estado = false;
 							}
 							else {
 								((Jugador) c).setNombre(textNombre.getText());
@@ -113,7 +115,7 @@ public class verEquipo extends JFrame {
 							} catch (NumberFormatException e) {
 								JOptionPane.showMessageDialog(verEquipo.this, "Dorsal incorrecto.", "Error",
 										JOptionPane.ERROR_MESSAGE);
-								estado = true;
+								estado = false;
 							}
 
 							// Posicion
@@ -121,7 +123,7 @@ public class verEquipo extends JFrame {
 									|| isEmpty(textPosicion.getText()) == false) {
 								JOptionPane.showMessageDialog(verEquipo.this, "Posición incorrecta.", "Error",
 										JOptionPane.ERROR_MESSAGE);
-								estado = true;
+								estado = false;
 							}
 							else {
 								((Jugador) c).setPosicion(textPosicion.getText());
@@ -137,7 +139,7 @@ public class verEquipo extends JFrame {
 							} catch (NumberFormatException e) {
 								JOptionPane.showMessageDialog(verEquipo.this, "Precisión incorrecta.", "Error",
 										JOptionPane.ERROR_MESSAGE);
-								estado = true;
+								estado = false;
 							}
 
 						}
@@ -146,16 +148,19 @@ public class verEquipo extends JFrame {
 				}
 				Equipo eq1 = new Equipo(plantillaEquipo.equipo.getNombre(), plantillaEquipo.equipo.getCiudad(),
 						plantillaEquipo.equipo.getEstadio(), plantillaEquipo.equipo.getFoto(), plantilla);
-				try {
-					if(estado = false) {
+				if(estado = true) {
+					try {
 						Jugar.serializar(eq1, plantillaEquipo.equipo.getNombre());
 						JOptionPane.showMessageDialog(verEquipo.this, "Datos modificados.", "Modificación",
 								JOptionPane.PLAIN_MESSAGE);
+					} catch (FileNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				}	
 			}
 		});
 		panel.add(btnModificar);
@@ -252,7 +257,7 @@ public class verEquipo extends JFrame {
 					plantillaEquipo.contadorGlobal--;
 				rellenarFormulario(plantillaEquipo.contadorGlobal);
 				ponerImagen(plantillaEquipo.fotos[plantillaEquipo.contadorGlobal]);
-				if (plantillaEquipo.contadorGlobal == (plantillaEquipo.jugadoresGlobal.length - 1)) {
+				if (plantillaEquipo.contadorGlobal == (plantillaEquipo.jugadoresGlobal.length - 2)) {
 					btnNext.setEnabled(false);
 					btnLast.setEnabled(false);
 				}
@@ -286,6 +291,7 @@ public class verEquipo extends JFrame {
 				verEquipo.this.setVisible(false);
 				VerEntrenador v = new VerEntrenador();
 				plantillaEquipo.contadorGlobal = 11;
+				v.DatosEntrenador(plantillaEquipo.contadorGlobal);
 				v.setVisible(true);
 				dispose();
 			}
@@ -311,6 +317,12 @@ public class verEquipo extends JFrame {
 		
 		lblEscudo = new JLabel("");
 		panel_3.add(lblEscudo);
+		
+		contentPane.setBackground(Color.WHITE);
+		panel.setBackground(Color.WHITE);
+		panel_1.setBackground(Color.WHITE);
+		panel_2.setBackground(Color.WHITE);
+		panel_3.setBackground(Color.WHITE);
 
 	}
 
@@ -339,7 +351,7 @@ public class verEquipo extends JFrame {
 		return palabra.substring(i);
 	}
 
-	private boolean comprobarString(String palabra) {
+	static boolean comprobarString(String palabra) {
 		for (int i = 0; i < palabra.length(); i++) {
 			char c = palabra.charAt(i);
 			if (!((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == ' ')) {
@@ -349,7 +361,7 @@ public class verEquipo extends JFrame {
 		return true;
 	}
 
-	private boolean isEmpty(String palabra) {
+	static boolean isEmpty(String palabra) {
 		if (palabra.isEmpty())
 			return false;
 		return true;

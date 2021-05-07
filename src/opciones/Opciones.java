@@ -20,7 +20,6 @@ import javax.swing.JComboBox;
 import java.awt.Font;
 import java.awt.Toolkit;
 
-@SuppressWarnings("serial")
 public class Opciones extends JFrame {
 
 	private JPanel contentPane;

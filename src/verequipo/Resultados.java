@@ -9,7 +9,6 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.Color;
 
-@SuppressWarnings("serial")
 public class Resultados extends JFrame {
 
 	private JPanel contentPane;

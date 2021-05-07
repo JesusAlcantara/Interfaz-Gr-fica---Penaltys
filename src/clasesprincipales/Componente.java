@@ -3,6 +3,7 @@ package clasesprincipales;
 import java.io.Serializable;
 
 public abstract class Componente implements Serializable{
+
 	private String nombre;
 	private String foto;
 	
