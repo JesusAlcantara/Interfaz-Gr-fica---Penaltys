@@ -32,17 +32,7 @@ public class Opciones extends JFrame {
 	public static int numLanzamientos;
 	private JLabel lanzamientos;
 	public static String [] equipos= {"Real Madrid","FC Barcelona","Atletico de Madrid","Sevilla FC","Cadiz CF"};
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		@SuppressWarnings("unused")
-		Opciones o=new Opciones();
-	}
-
-	/**
-	 * Create the frame.
-	 */
+	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Opciones() {
 		super("Opciones");
